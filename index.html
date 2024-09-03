@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Treino Personalizado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plano de Treino Personalizado</h1>
+        <form id="form">
+            <label for="biotipo">Biotipo Corporal:</label>
+            <select id="biotipo">
+                <option value="Mesomorfo">Mesomorfo</option>
+                <option value="Ectomorfo">Ectomorfo</option>
+                <option value="Endomorfo">Endomorfo</option>
+            </select>
+
+            <label for="dias">Dias Disponíveis para Treino:</label>
+            <select id="dias">
+                <option value="1">1 dia</option>
+                <option value="3">3 dias</option>
+                <option value="5">5 dias</option>
+            </select>
+
+            <label for="tipo">Tipo de Treino:</label>
+            <select id="tipo" multiple>
+                <option value="Funcional">Funcional</option>
+                <option value="Cardio">Cardio</option>
+                <option value="HIIT">HIIT</option>
+                <option value="Peso Livre">Peso Livre</option>
+                <option value="Maquinário">Maquinário</option>
+            </select>
+
+            <label for="objetivo">Objetivo:</label>
+            <select id="objetivo">
+                <option value="Ganho de Massa Muscular">Ganho de Massa Muscular</option>
+                <option value="Perda de Gordura">Perda de Gordura</option>
+                <option value="Condicionamento Físico Geral">Condicionamento Físico Geral</option>
+            </select>
+
+            <label for="nivel">Nível de Experiência:</label>
+            <select id="nivel">
+                <option value="Iniciante">Iniciante</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
+            </select>
+
+            <label for="equipamento">Equipamento Disponível:</label>
+            <select id="equipamento">
+                <option value="Academia Completa">Academia Completa</option>
+                <option value="Equipamento Básico">Equipamento Básico</option>
+                <option value="Sem Equipamento">Sem Equipamento</option>
+            </select>
+
+            <label for="tempo">Tempo por Sessão:</label>
+            <select id="tempo">
+                <option value="30">30 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="60">60 minutos</option>
+                <option value="90">90 minutos</option>
+            </select>
+
+            <button type="button" onclick="gerarPlano()">Gerar Plano de Treino</button>
+        </form>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

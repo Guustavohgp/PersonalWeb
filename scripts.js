@@ -1,17 +1,33 @@
 function gerarPlano() {
     const biotipo = document.getElementById('biotipo').value;
     const dias = document.getElementById('dias').value;
-    const tipo = Array.from(document.getElementById('tipo').selectedOptions).map(option => option.value);
     const objetivo = document.getElementById('objetivo').value;
     const nivel = document.getElementById('nivel').value;
     const equipamento = document.getElementById('equipamento').value;
     const tempo = document.getElementById('tempo').value;
 
+    // Coleta os valores das checkboxes selecionadas
+    const tipoTreino = [];
+    if (document.getElementById('funcional').checked) {
+        tipoTreino.push('Funcional');
+    }
+    if (document.getElementById('cardio').checked) {
+        tipoTreino.push('Cardio');
+    }
+    if (document.getElementById('hiit').checked) {
+        tipoTreino.push('HIIT');
+    }
+    if (document.getElementById('pesoLivre').checked) {
+        tipoTreino.push('Peso Livre');
+    }
+    if (document.getElementById('maquinario').checked) {
+        tipoTreino.push('Maquinário');
+    }
+
     let plano = '';
 
     // Regra 1: Identificação do Biotipo
     plano += `<h2>Biotipo Corporal: ${biotipo}</h2>`;
-    // Adicionar detalhes específicos do biotipo, se necessário
 
     // Regra 2: Periodização
     plano += `<h3>Periodização:</h3>`;
@@ -25,7 +41,7 @@ function gerarPlano() {
 
     // Regra 3: Tipo de Treino
     plano += `<h3>Tipo de Treino:</h3>`;
-    plano += tipo.length ? tipo.join(', ') : 'Nenhum tipo de treino selecionado.<br>';
+    plano += tipoTreino.length ? tipoTreino.join(', ') : 'Nenhum tipo de treino selecionado.<br>';
 
     // Regra 4: Objetivo
     plano += `<h3>Objetivo:</h3>`;

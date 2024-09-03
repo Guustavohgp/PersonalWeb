@@ -178,4 +178,39 @@
                 rotina += distribuirExercicios(tempo, exerciciosFuncionais[params.nivel]);
                 rotina += `<br><strong>Dia 2: Cardio - ${tempo} minutos</strong><br>`;
                 rotina += distribuirExercicios(tempo, exerciciosCardio[params.nivel]);
-                rotina += `<br><strong>Dia 3: Peso Livre - ${tempo} minutos
+                rotina += `<br><strong>Dia 3: Peso Livre - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosPesoLivre[params.nivel]);
+                rotina += `<br><strong>Dia 4: Funcional e HIIT - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosFuncionais[params.nivel].slice(0, 2), exerciciosHIIT[params.nivel].slice(0, 1));
+                rotina += `<br><strong>Dia 5: Cardio e Peso Livre - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosCardio[params.nivel].slice(1, 2), exerciciosPesoLivre[params.nivel].slice(0, 1));
+            }
+
+            return rotina;
+        }
+
+        function distribuirExercicios(tempo, ...exercicios) {
+            let distribuicao = '';
+            const tempoPorExercicio = Math.floor(tempo / exercicios.length);
+
+            exercicios.forEach((exercicio, index) => {
+                if (Array.isArray(exercicio)) {
+                    exercicio.forEach(ex => {
+                        distribuicao += `${ex} - ${tempoPorExercicio} minutos<br>`;
+                    });
+                } else {
+                    distribuicao += `${exercicio} - ${tempoPorExercicio} minutos<br>`;
+                }
+            });
+
+            return distribuicao;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const params = getQueryParams();
+            const planoTreino = gerarPlano(params);
+            document.getElementById('resultado').innerHTML = planoTreino;
+        });
+    </script>
+</body>
+</html>

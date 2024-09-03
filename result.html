@@ -73,84 +73,128 @@
         function gerarRotinaTreino(params) {
             let rotina = '';
 
-            // Configurações baseadas no biotipo, dias, tipo de treino, objetivo, etc.
-            const exerciciosFuncionais = [
-                "Agachamento com salto - 4 séries de 15 repetições",
-                "Flexão de braço - 3 séries de 12 repetições",
-                "Burpees - 3 séries de 10 repetições",
-                "Levantamento terra - 4 séries de 8 repetições"
-            ];
+            // Definição de exercícios com base no nível de experiência e tipo de treino
+            const exerciciosFuncionais = {
+                Iniciante: [
+                    "Agachamento com peso corporal - 3 séries de 12 repetições",
+                    "Flexão de braço com joelhos no chão - 3 séries de 10 repetições",
+                    "Burpees - 2 séries de 8 repetições"
+                ],
+                Intermediário: [
+                    "Agachamento com halteres - 4 séries de 15 repetições",
+                    "Flexão de braço padrão - 3 séries de 12 repetições",
+                    "Burpees - 3 séries de 10 repetições"
+                ],
+                Avançado: [
+                    "Agachamento com salto - 4 séries de 15 repetições",
+                    "Flexão de braço em prancha - 4 séries de 15 repetições",
+                    "Burpees - 4 séries de 15 repetições"
+                ]
+            };
 
-            const exerciciosCardio = [
-                "Corrida - 20 minutos",
-                "Ciclismo - 15 minutos",
-                "Pular corda - 10 minutos",
-                "HIIT - 20 minutos (40s ON/20s OFF)"
-            ];
+            const exerciciosCardio = {
+                Iniciante: [
+                    "Caminhada rápida - 20 minutos",
+                    "Pular corda - 5 minutos",
+                    "Corrida leve - 10 minutos"
+                ],
+                Intermediário: [
+                    "Corrida - 20 minutos",
+                    "Ciclismo - 15 minutos",
+                    "HIIT - 10 minutos (30s ON/30s OFF)"
+                ],
+                Avançado: [
+                    "Sprint - 8 séries de 30 segundos (90s descanso)",
+                    "Ciclismo intenso - 20 minutos",
+                    "HIIT - 20 minutos (40s ON/20s OFF)"
+                ]
+            };
 
-            const exerciciosPesoLivre = [
-                "Supino com halteres - 4 séries de 10 repetições",
-                "Remada com halteres - 4 séries de 10 repetições",
-                "Desenvolvimento de ombro com halteres - 4 séries de 12 repetições",
-                "Rosca direta com barra - 4 séries de 15 repetições"
-            ];
+            const exerciciosPesoLivre = {
+                Iniciante: [
+                    "Supino com halteres - 3 séries de 12 repetições",
+                    "Remada com halteres - 3 séries de 12 repetições",
+                    "Rosca direta com halteres - 3 séries de 15 repetições"
+                ],
+                Intermediário: [
+                    "Supino com barra - 4 séries de 10 repetições",
+                    "Remada curvada com barra - 4 séries de 10 repetições",
+                    "Rosca direta com barra - 4 séries de 12 repetições"
+                ],
+                Avançado: [
+                    "Supino inclinado com halteres - 4 séries de 12 repetições",
+                    "Remada unilateral com halteres - 4 séries de 12 repetições",
+                    "Rosca martelo com halteres - 4 séries de 15 repetições"
+                ]
+            };
 
-            const exerciciosMaquinario = [
-                "Leg press - 4 séries de 10 repetições",
-                "Cadeira extensora - 4 séries de 12 repetições",
-                "Puxada alta - 4 séries de 10 repetições",
-                "Crossover - 4 séries de 15 repetições"
-            ];
+            const exerciciosHIIT = {
+                Iniciante: [
+                    "Mountain climbers - 4 séries de 20 segundos",
+                    "Saltos laterais - 4 séries de 20 segundos",
+                    "Kettlebell swings (leve) - 3 séries de 15 repetições"
+                ],
+                Intermediário: [
+                    "Mountain climbers - 5 séries de 30 segundos",
+                    "Saltos laterais - 5 séries de 30 segundos",
+                    "Kettlebell swings (moderado) - 4 séries de 15 repetições"
+                ],
+                Avançado: [
+                    "Mountain climbers - 6 séries de 40 segundos",
+                    "Saltos laterais - 6 séries de 40 segundos",
+                    "Kettlebell swings (pesado) - 4 séries de 20 repetições"
+                ]
+            };
 
-            const exerciciosHIIT = [
-                "Sprint - 8 séries de 30 segundos (90s descanso)",
-                "Battle ropes - 4 séries de 30 segundos",
-                "Kettlebell swings - 3 séries de 20 repetições",
-                "Mountain climbers - 3 séries de 40 segundos"
-            ];
-
-            // Exemplo de rotina
-            if (params.dias === '3') {
+            // Exemplos de rotinas baseadas nas variáveis escolhidas
+            if (params.dias === '1') {
+                rotina += `<strong>Treino Full Body</strong><br>`;
+                if (params.tipoTreino.includes('Funcional')) {
+                    rotina += exerciciosFuncionais[params.nivel].join('<br>') + '<br>';
+                }
+                if (params.tipoTreino.includes('Cardio')) {
+                    rotina += exerciciosCardio[params.nivel].join('<br>') + '<br>';
+                }
+                if (params.tipoTreino.includes('HIIT')) {
+                    rotina += exerciciosHIIT[params.nivel].join('<br>') + '<br>';
+                }
+            } else if (params.dias === '3') {
                 rotina += `<strong>Dia 1: Funcional e Cardio</strong><br>`;
-                rotina += exerciciosFuncionais.slice(0, 2).join('<br>') + '<br>';
-                rotina += exerciciosCardio[0] + '<br><br>';
+                rotina += exerciciosFuncionais[params.nivel].slice(0, 2).join('<br>') + '<br>';
+                rotina += exerciciosCardio[params.nivel][0] + '<br><br>';
 
-                rotina += `<strong>Dia 2: Peso Livre e Maquinário</strong><br>`;
-                rotina += exerciciosPesoLivre.slice(0, 2).join('<br>') + '<br>';
-                rotina += exerciciosMaquinario.slice(0, 2).join('<br>') + '<br><br>';
+                rotina += `<strong>Dia 2: Peso Livre</strong><br>`;
+                rotina += exerciciosPesoLivre[params.nivel].slice(0, 2).join('<br>') + '<br><br>';
 
                 rotina += `<strong>Dia 3: Funcional, Cardio e HIIT</strong><br>`;
-                rotina += exerciciosFuncionais[2] + '<br>';
-                rotina += exerciciosCardio[1] + '<br>';
-                rotina += exerciciosHIIT[0] + '<br>';
-            } else if (params.dias === '1') {
-                rotina += `<strong>Treino Full Body</strong><br>`;
-                rotina += exerciciosFuncionais.join('<br>') + '<br>';
-                rotina += exerciciosCardio[0] + '<br>';
+                rotina += exerciciosFuncionais[params.nivel][2] + '<br>';
+                rotina += exerciciosCardio[params.nivel][1] + '<br>';
+                rotina += exerciciosHIIT[params.nivel][0] + '<br>';
             } else if (params.dias === '5') {
                 rotina += `<strong>Dia 1: Funcional</strong><br>`;
-                rotina += exerciciosFuncionais.join('<br>') + '<br><br>';
+                rotina += exerciciosFuncionais[params.nivel].join('<br>') + '<br><br>';
 
                 rotina += `<strong>Dia 2: Cardio</strong><br>`;
-                rotina += exerciciosCardio.join('<br>') + '<br><br>';
+                rotina += exerciciosCardio[params.nivel].join('<br>') + '<br><br>';
 
                 rotina += `<strong>Dia 3: Peso Livre</strong><br>`;
-                rotina += exerciciosPesoLivre.join('<br>') + '<br><br>';
+                rotina += exerciciosPesoLivre[params.nivel].join('<br>') + '<br><br>';
 
-                rotina += `<strong>Dia 4: Maquinário</strong><br>`;
-                rotina += exerciciosMaquinario.join('<br>') + '<br><br>';
+                rotina += `<strong>Dia 4: HIIT</strong><br>`;
+                rotina += exerciciosHIIT[params.nivel].join('<br>') + '<br><br>';
 
-                rotina += `<strong>Dia 5: HIIT</strong><br>`;
-                rotina += exerciciosHIIT.join('<br>') + '<br>';
+                rotina += `<strong>Dia 5: Combinação Funcional e Cardio</strong><br>`;
+                rotina += exerciciosFuncionais[params.nivel].slice(0, 2).join('<br>') + '<br>';
+                rotina += exerciciosCardio[params.nivel][0] + '<br>';
             }
 
             return rotina;
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", function() {
             const params = getQueryParams();
-            const resultadoDiv = document.getElementById('resultado');
-            resultadoDiv.innerHTML = gerarPlano(params);
+            const planoTreino = gerarPlano(params);
+            document.getElementById('resultado').innerHTML = planoTreino;
         });
     </script>
 </body>

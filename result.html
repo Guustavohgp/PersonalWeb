@@ -30,10 +30,10 @@
         function gerarPlano(params) {
             let plano = '';
 
-            // Regra 1: Identificação do Biotipo
+            // Biotipo Corporal
             plano += `<h2>Biotipo Corporal: ${params.biotipo}</h2>`;
-
-            // Regra 2: Periodização
+            
+            // Periodização
             plano += `<h3>Periodização:</h3>`;
             if (params.dias === '1') {
                 plano += 'Treino Full Body (Treino completo de todos os grupos musculares em uma única sessão).<br>';
@@ -43,27 +43,108 @@
                 plano += 'Treino ABCDE (Divisão avançada, com um grupo muscular ou função trabalhada por dia).<br>';
             }
 
-            // Regra 3: Tipo de Treino
+            // Tipo de Treino
             plano += `<h3>Tipo de Treino:</h3>`;
             plano += params.tipoTreino.length ? params.tipoTreino.join(', ') : 'Nenhum tipo de treino selecionado.<br>';
 
-            // Regra 4: Objetivo
+            // Objetivo
             plano += `<h3>Objetivo:</h3>`;
             plano += params.objetivo ? params.objetivo : 'Nenhum objetivo selecionado.<br>';
 
-            // Regra 5: Nível de Experiência
+            // Nível de Experiência
             plano += `<h3>Nível de Experiência:</h3>`;
             plano += params.nivel ? params.nivel : 'Nível de experiência não selecionado.<br>';
 
-            // Regra 6: Equipamento Disponível
+            // Equipamento Disponível
             plano += `<h3>Equipamento Disponível:</h3>`;
             plano += params.equipamento ? params.equipamento : 'Equipamento não especificado.<br>';
 
-            // Regra 7: Tempo por Sessão
+            // Tempo por Sessão
             plano += `<h3>Tempo por Sessão:</h3>`;
             plano += params.tempo ? `${params.tempo} minutos` : 'Tempo por sessão não especificado.<br>';
 
+            // Rotina de Treino
+            plano += `<h3>Rotina de Treino:</h3>`;
+            plano += gerarRotinaTreino(params);
+
             return plano;
+        }
+
+        function gerarRotinaTreino(params) {
+            let rotina = '';
+
+            // Configurações baseadas no biotipo, dias, tipo de treino, objetivo, etc.
+            const exerciciosFuncionais = [
+                "Agachamento com salto - 4 séries de 15 repetições",
+                "Flexão de braço - 3 séries de 12 repetições",
+                "Burpees - 3 séries de 10 repetições",
+                "Levantamento terra - 4 séries de 8 repetições"
+            ];
+
+            const exerciciosCardio = [
+                "Corrida - 20 minutos",
+                "Ciclismo - 15 minutos",
+                "Pular corda - 10 minutos",
+                "HIIT - 20 minutos (40s ON/20s OFF)"
+            ];
+
+            const exerciciosPesoLivre = [
+                "Supino com halteres - 4 séries de 10 repetições",
+                "Remada com halteres - 4 séries de 10 repetições",
+                "Desenvolvimento de ombro com halteres - 4 séries de 12 repetições",
+                "Rosca direta com barra - 4 séries de 15 repetições"
+            ];
+
+            const exerciciosMaquinario = [
+                "Leg press - 4 séries de 10 repetições",
+                "Cadeira extensora - 4 séries de 12 repetições",
+                "Puxada alta - 4 séries de 10 repetições",
+                "Crossover - 4 séries de 15 repetições"
+            ];
+
+            const exerciciosHIIT = [
+                "Sprint - 8 séries de 30 segundos (90s descanso)",
+                "Battle ropes - 4 séries de 30 segundos",
+                "Kettlebell swings - 3 séries de 20 repetições",
+                "Mountain climbers - 3 séries de 40 segundos"
+            ];
+
+            // Exemplo de rotina
+            if (params.dias === '3') {
+                rotina += `<strong>Dia 1: Funcional e Cardio</strong><br>`;
+                rotina += exerciciosFuncionais.slice(0, 2).join('<br>') + '<br>';
+                rotina += exerciciosCardio[0] + '<br><br>';
+
+                rotina += `<strong>Dia 2: Peso Livre e Maquinário</strong><br>`;
+                rotina += exerciciosPesoLivre.slice(0, 2).join('<br>') + '<br>';
+                rotina += exerciciosMaquinario.slice(0, 2).join('<br>') + '<br><br>';
+
+                rotina += `<strong>Dia 3: Funcional, Cardio e HIIT</strong><br>`;
+                rotina += exerciciosFuncionais[2] + '<br>';
+                rotina += exerciciosCardio[1] + '<br>';
+                rotina += exerciciosHIIT[0] + '<br>';
+            } else if (params.dias === '1') {
+                rotina += `<strong>Treino Full Body</strong><br>`;
+                rotina += exerciciosFuncionais.join('<br>') + '<br>';
+                rotina += exerciciosCardio[0] + '<br>';
+            } else if (params.dias === '5') {
+                rotina += `<strong>Dia 1: Funcional</strong><br>`;
+                rotina += exerciciosFuncionais.join('<br>') + '<br><br>';
+
+                rotina += `<strong>Dia 2: Cardio</strong><br>`;
+                rotina += exerciciosCardio.join('<br>') + '<br><br>';
+
+                rotina += `<strong>Dia 3: Peso Livre</strong><br>`;
+                rotina += exerciciosPesoLivre.join('<br>') + '<br><br>';
+
+                rotina += `<strong>Dia 4: Maquinário</strong><br>`;
+                rotina += exerciciosMaquinario.join('<br>') + '<br><br>';
+
+                rotina += `<strong>Dia 5: HIIT</strong><br>`;
+                rotina += exerciciosHIIT.join('<br>') + '<br>';
+            }
+
+            return rotina;
         }
 
         document.addEventListener("DOMContentLoaded", () => {

@@ -10,6 +10,7 @@
     <div class="container">
         <h1>Plano de Treino Personalizado</h1>
         <form id="form">
+            <!-- Outras variáveis -->
             <label for="biotipo">Biotipo Corporal:</label>
             <select id="biotipo">
                 <option value="Mesomorfo">Mesomorfo</option>
@@ -24,15 +25,25 @@
                 <option value="5">5 dias</option>
             </select>
 
-            <label for="tipo">Tipo de Treino:</label>
-            <select id="tipo" multiple>
-                <option value="Funcional">Funcional</option>
-                <option value="Cardio">Cardio</option>
-                <option value="HIIT">HIIT</option>
-                <option value="Peso Livre">Peso Livre</option>
-                <option value="Maquinário">Maquinário</option>
-            </select>
+            <label>Tipo de Treino:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="funcional" value="Funcional">
+                <label for="funcional">Funcional</label><br>
 
+                <input type="checkbox" id="cardio" value="Cardio">
+                <label for="cardio">Cardio</label><br>
+
+                <input type="checkbox" id="hiit" value="HIIT">
+                <label for="hiit">HIIT</label><br>
+
+                <input type="checkbox" id="pesoLivre" value="Peso Livre">
+                <label for="pesoLivre">Peso Livre</label><br>
+
+                <input type="checkbox" id="maquinario" value="Maquinário">
+                <label for="maquinario">Maquinário</label><br>
+            </div>
+
+            <!-- Outras variáveis -->
             <label for="objetivo">Objetivo:</label>
             <select id="objetivo">
                 <option value="Ganho de Massa Muscular">Ganho de Massa Muscular</option>

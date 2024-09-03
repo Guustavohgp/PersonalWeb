@@ -30,9 +30,10 @@
         function gerarPlano(params) {
             let plano = '';
 
-            // Biotipo Corporal
+            // Identificação do Biotipo Corporal
             plano += `<h2>Biotipo Corporal: ${params.biotipo}</h2>`;
-            
+            plano += descreverBiotipo(params.biotipo);
+
             // Periodização
             plano += `<h3>Periodização:</h3>`;
             if (params.dias === '1') {
@@ -70,10 +71,23 @@
             return plano;
         }
 
+        function descreverBiotipo(biotipo) {
+            switch(biotipo) {
+                case 'Ectomorfo':
+                    return 'Ectomorfo: Corpo mais magro, difícil ganhar peso e massa muscular.<br>';
+                case 'Mesomorfo':
+                    return 'Mesomorfo: Corpo naturalmente musculoso, facilidade para ganhar massa muscular e perder gordura.<br>';
+                case 'Endomorfo':
+                    return 'Endomorfo: Corpo com tendência a acumular gordura, maior dificuldade em perder peso.<br>';
+                default:
+                    return '';
+            }
+        }
+
         function gerarRotinaTreino(params) {
             let rotina = '';
 
-            // Definição de exercícios com base no nível de experiência e tipo de treino
+            // Definição de exercícios com base no nível de experiência, tipo de treino e tempo disponível
             const exerciciosFuncionais = {
                 Iniciante: [
                     "Agachamento com peso corporal - 3 séries de 12 repetições",
@@ -146,56 +160,22 @@
                 ]
             };
 
-            // Exemplos de rotinas baseadas nas variáveis escolhidas
+            // Ajuste da rotina com base no tempo disponível
+            const tempo = parseInt(params.tempo);
+
             if (params.dias === '1') {
-                rotina += `<strong>Treino Full Body</strong><br>`;
-                if (params.tipoTreino.includes('Funcional')) {
-                    rotina += exerciciosFuncionais[params.nivel].join('<br>') + '<br>';
-                }
-                if (params.tipoTreino.includes('Cardio')) {
-                    rotina += exerciciosCardio[params.nivel].join('<br>') + '<br>';
-                }
-                if (params.tipoTreino.includes('HIIT')) {
-                    rotina += exerciciosHIIT[params.nivel].join('<br>') + '<br>';
-                }
+                rotina += `<strong>Treino Full Body - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosFuncionais[params.nivel], exerciciosCardio[params.nivel], exerciciosHIIT[params.nivel]);
             } else if (params.dias === '3') {
-                rotina += `<strong>Dia 1: Funcional e Cardio</strong><br>`;
-                rotina += exerciciosFuncionais[params.nivel].slice(0, 2).join('<br>') + '<br>';
-                rotina += exerciciosCardio[params.nivel][0] + '<br><br>';
-
-                rotina += `<strong>Dia 2: Peso Livre</strong><br>`;
-                rotina += exerciciosPesoLivre[params.nivel].slice(0, 2).join('<br>') + '<br><br>';
-
-                rotina += `<strong>Dia 3: Funcional, Cardio e HIIT</strong><br>`;
-                rotina += exerciciosFuncionais[params.nivel][2] + '<br>';
-                rotina += exerciciosCardio[params.nivel][1] + '<br>';
-                rotina += exerciciosHIIT[params.nivel][0] + '<br>';
+                rotina += `<strong>Dia 1: Funcional e Cardio - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosFuncionais[params.nivel].slice(0, 2), exerciciosCardio[params.nivel].slice(0, 1));
+                rotina += `<br><strong>Dia 2: Peso Livre - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosPesoLivre[params.nivel]);
+                rotina += `<br><strong>Dia 3: Funcional, Cardio e HIIT - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosFuncionais[params.nivel].slice(-1), exerciciosCardio[params.nivel].slice(1, 2), exerciciosHIIT[params.nivel].slice(0, 1));
             } else if (params.dias === '5') {
-                rotina += `<strong>Dia 1: Funcional</strong><br>`;
-                rotina += exerciciosFuncionais[params.nivel].join('<br>') + '<br><br>';
-
-                rotina += `<strong>Dia 2: Cardio</strong><br>`;
-                rotina += exerciciosCardio[params.nivel].join('<br>') + '<br><br>';
-
-                rotina += `<strong>Dia 3: Peso Livre</strong><br>`;
-                rotina += exerciciosPesoLivre[params.nivel].join('<br>') + '<br><br>';
-
-                rotina += `<strong>Dia 4: HIIT</strong><br>`;
-                rotina += exerciciosHIIT[params.nivel].join('<br>') + '<br><br>';
-
-                rotina += `<strong>Dia 5: Combinação Funcional e Cardio</strong><br>`;
-                rotina += exerciciosFuncionais[params.nivel].slice(0, 2).join('<br>') + '<br>';
-                rotina += exerciciosCardio[params.nivel][0] + '<br>';
-            }
-
-            return rotina;
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const params = getQueryParams();
-            const planoTreino = gerarPlano(params);
-            document.getElementById('resultado').innerHTML = planoTreino;
-        });
-    </script>
-</body>
-</html>
+                rotina += `<strong>Dia 1: Funcional - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosFuncionais[params.nivel]);
+                rotina += `<br><strong>Dia 2: Cardio - ${tempo} minutos</strong><br>`;
+                rotina += distribuirExercicios(tempo, exerciciosCardio[params.nivel]);
+                rotina += `<br><strong>Dia 3: Peso Livre - ${tempo} minutos

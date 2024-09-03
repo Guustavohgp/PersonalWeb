@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado do Plano de Treino</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Seu Plano de Treino Personalizado</h1>
+        <div id="resultado" class="resultado"></div>
+        <a href="index.html" class="btn">Voltar</a>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                biotipo: params.get('biotipo'),
+                dias: params.get('dias'),
+                tipoTreino: params.getAll('tipoTreino'),
+                objetivo: params.get('objetivo'),
+                nivel: params.get('nivel'),
+                equipamento: params.get('equipamento'),
+                tempo: params.get('tempo'),
+            };
+        }
+
+        function gerarPlano(params) {
+            let plano = '';
+
+            // Regra 1: Identificação do Biotipo
+            plano += `<h2>Biotipo Corporal: ${params.biotipo}</h2>`;
+
+            // Regra 2: Periodização
+            plano += `<h3>Periodização:</h3>`;
+            if (params.dias === '1') {
+                plano += 'Treino Full Body (Treino completo de todos os grupos musculares em uma única sessão).<br>';
+            } else if (params.dias === '3') {
+                plano += 'Treino ABC (Divisão dos grupos musculares em três sessões diferentes).<br>';
+            } else if (params.dias === '5') {
+                plano += 'Treino ABCDE (Divisão avançada, com um grupo muscular ou função trabalhada por dia).<br>';
+            }
+
+            // Regra 3: Tipo de Treino
+            plano += `<h3>Tipo de Treino:</h3>`;
+            plano += params.tipoTreino.length ? params.tipoTreino.join(', ') : 'Nenhum tipo de treino selecionado.<br>';
+
+            // Regra 4: Objetivo
+            plano += `<h3>Objetivo:</h3>`;
+            plano += params.objetivo ? params.objetivo : 'Nenhum objetivo selecionado.<br>';
+
+            // Regra 5: Nível de Experiência
+            plano += `<h3>Nível de Experiência:</h3>`;
+            plano += params.nivel ? params.nivel : 'Nível de experiência não selecionado.<br>';
+
+            // Regra 6: Equipamento Disponível
+            plano += `<h3>Equipamento Disponível:</h3>`;
+            plano += params.equipamento ? params.equipamento : 'Equipamento não especificado.<br>';
+
+            // Regra 7: Tempo por Sessão
+            plano += `<h3>Tempo por Sessão:</h3>`;
+            plano += params.tempo ? `${params.tempo} minutos` : 'Tempo por sessão não especificado.<br>';
+
+            return plano;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = getQueryParams();
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = gerarPlano(params);
+        });
+    </script>
+</body>
+</html>

@@ -8,70 +8,49 @@
 </head>
 <body>
     <div class="container">
-        <h1>Plano de Treino Personalizado</h1>
-        <form id="form" action="result.html" method="GET">
+        <h1>Crie Seu Plano de Treino</h1>
+        <form id="treinoForm" action="result.html" method="get">
             <label for="biotipo">Biotipo Corporal:</label>
-            <select id="biotipo" name="biotipo">
-                <option value="Mesomorfo">Mesomorfo</option>
+            <select id="biotipo" name="biotipo" required>
                 <option value="Ectomorfo">Ectomorfo</option>
+                <option value="Mesomorfo">Mesomorfo</option>
                 <option value="Endomorfo">Endomorfo</option>
             </select>
 
             <label for="dias">Dias Disponíveis para Treino:</label>
-            <select id="dias" name="dias">
+            <select id="dias" name="dias" required>
                 <option value="1">1 dia</option>
                 <option value="3">3 dias</option>
                 <option value="5">5 dias</option>
             </select>
 
             <label>Tipo de Treino:</label>
-            <div class="checkbox-group">
-                <input type="checkbox" id="funcional" name="tipoTreino" value="Funcional">
+            <div id="tipoTreino">
+                <input type="radio" id="funcional" name="tipoTreino" value="Funcional" required>
                 <label for="funcional">Funcional</label><br>
 
-                <input type="checkbox" id="cardio" name="tipoTreino" value="Cardio">
+                <input type="radio" id="cardio" name="tipoTreino" value="Cardio">
                 <label for="cardio">Cardio</label><br>
 
-                <input type="checkbox" id="hiit" name="tipoTreino" value="HIIT">
-                <label for="hiit">HIIT</label><br>
-
-                <input type="checkbox" id="pesoLivre" name="tipoTreino" value="Peso Livre">
+                <input type="radio" id="pesoLivre" name="tipoTreino" value="Peso Livre">
                 <label for="pesoLivre">Peso Livre</label><br>
-
-                <input type="checkbox" id="maquinario" name="tipoTreino" value="Maquinário">
-                <label for="maquinario">Maquinário</label><br>
             </div>
 
             <label for="objetivo">Objetivo:</label>
-            <select id="objetivo" name="objetivo">
-                <option value="Ganho de Massa Muscular">Ganho de Massa Muscular</option>
-                <option value="Perda de Gordura">Perda de Gordura</option>
-                <option value="Condicionamento Físico Geral">Condicionamento Físico Geral</option>
+            <select id="objetivo" name="objetivo" required>
+                <option value="Ganho de massa muscular">Ganho de massa muscular</option>
+                <option value="Perda de gordura">Perda de gordura</option>
+                <option value="Condicionamento físico geral">Condicionamento físico geral</option>
             </select>
 
             <label for="nivel">Nível de Experiência:</label>
-            <select id="nivel" name="nivel">
+            <select id="nivel" name="nivel" required>
                 <option value="Iniciante">Iniciante</option>
                 <option value="Intermediário">Intermediário</option>
                 <option value="Avançado">Avançado</option>
             </select>
 
-            <label for="equipamento">Equipamento Disponível:</label>
-            <select id="equipamento" name="equipamento">
-                <option value="Academia Completa">Academia Completa</option>
-                <option value="Equipamento Básico">Equipamento Básico</option>
-                <option value="Sem Equipamento">Sem Equipamento</option>
-            </select>
-
-            <label for="tempo">Tempo por Sessão:</label>
-            <select id="tempo" name="tempo">
-                <option value="30">30 minutos</option>
-                <option value="45">45 minutos</option>
-                <option value="60">60 minutos</option>
-                <option value="90">90 minutos</option>
-            </select>
-
-            <button type="submit">Gerar Plano de Treino</button>
+            <button type="submit" class="btn">Gerar Plano de Treino</button>
         </form>
     </div>
 </body>

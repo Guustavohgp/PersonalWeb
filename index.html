@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plano de Treino Personalizado</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Função para habilitar/desabilitar o campo de Objetivo
+        function verificarObjetivo() {
+            const tipoTreino = document.querySelector('input[name="tipoTreino"]:checked').value;
+            const objetivo = document.getElementById('objetivo');
+
+            if (tipoTreino === 'Peso Livre') {
+                // Habilitar o campo de objetivo
+                objetivo.disabled = false;
+            } else {
+                // Desabilitar o campo de objetivo
+                objetivo.disabled = true;
+                objetivo.value = ""; // Limpar seleção
+            }
+        }
+
+        // Adiciona eventos ao carregar a página
+        window.onload = function() {
+            const radios = document.querySelectorAll('input[name="tipoTreino"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', verificarObjetivo);
+            });
+            verificarObjetivo(); // Verifica o estado inicial ao carregar a página
+        }
+    </script>
 </head>
 <body>
     <div class="container">

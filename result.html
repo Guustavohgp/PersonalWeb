@@ -81,288 +81,139 @@
             }
         }
 
-        function gerarRotinaTreino(params) {
-            console.log('Gerando rotina com parâmetros:', params); // Adicione esta linha para verificar a geração da rotina
-
-            let rotina = '';
-            
-            const exercicios = {
-                Funcional: {
-                    'Perda de Peso': {
-                        Iniciante: {
-                            '1': [
-                                "Agachamento com peso corporal - 3 séries de 12 repetições",
-                                "Flexão de braço com joelhos no chão - 3 séries de 10 repetições",
-                                "Burpees - 2 séries de 8 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Flexão de braço padrão - 3 séries de 12 repetições",
-                                "Burpees - 3 séries de 10 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço em prancha - 4 séries de 15 repetições",
-                                "Burpees - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Intermediário: {
-                            '1': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Flexão de braço padrão - 3 séries de 12 repetições",
-                                "Burpees - 3 séries de 10 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço em prancha - 4 séries de 15 repetições",
-                                "Burpees - 4 séries de 15 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço com clapping - 4 séries de 12 repetições",
-                                "Burpees - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Avançado: {
-                            '1': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço em prancha - 4 séries de 15 repetições",
-                                "Burpees - 4 séries de 15 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com salto e halteres - 4 séries de 12 repetições",
-                                "Flexão de braço com clapping - 4 séries de 12 repetições",
-                                "Burpees avançados - 4 séries de 20 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com salto e halteres - 4 séries de 12 repetições",
-                                "Flexão de braço com elevação - 4 séries de 12 repetições",
-                                "Burpees avançados - 4 séries de 20 repetições"
-                            ]
-                        }
-                    },
-                    'Ganho de Massa': {
-                        Iniciante: {
-                            '1': [
-                                "Agachamento com peso corporal - 3 séries de 12 repetições",
-                                "Flexão de braço com joelhos no chão - 3 séries de 10 repetições",
-                                "Mountain climbers - 2 séries de 8 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Flexão de braço padrão - 3 séries de 12 repetições",
-                                "Mountain climbers - 3 séries de 10 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço em prancha - 4 séries de 15 repetições",
-                                "Mountain climbers - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Intermediário: {
-                            '1': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Flexão de braço padrão - 3 séries de 12 repetições",
-                                "Mountain climbers - 3 séries de 10 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço em prancha - 4 séries de 15 repetições",
-                                "Mountain climbers - 4 séries de 15 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço com clapping - 4 séries de 12 repetições",
-                                "Mountain climbers - 4 séries de 20 repetições"
-                            ]
-                        },
-                        Avançado: {
-                            '1': [
-                                "Agachamento com salto - 4 séries de 15 repetições",
-                                "Flexão de braço em prancha - 4 séries de 15 repetições",
-                                "Mountain climbers - 4 séries de 15 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com salto e halteres - 4 séries de 12 repetições",
-                                "Flexão de braço com clapping - 4 séries de 12 repetições",
-                                "Mountain climbers avançados - 4 séries de 20 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com salto e halteres - 4 séries de 12 repetições",
-                                "Flexão de braço com elevação - 4 séries de 12 repetições",
-                                "Mountain climbers avançados - 4 séries de 20 repetições"
-                            ]
-                        }
-                    }
-                },
-                Cardio: {
-                    Iniciante: {
-                        '1': [
-                            "Caminhada rápida por 20 minutos",
-                            "Corrida leve por 10 minutos"
-                        ],
-                        '3': [
-                            "Caminhada rápida por 30 minutos",
-                            "Corrida leve por 20 minutos"
-                        ],
-                        '5': [
-                            "Caminhada rápida por 45 minutos",
-                            "Corrida moderada por 30 minutos"
-                        ]
-                    },
-                    Intermediário: {
-                        '1': [
-                            "Corrida moderada por 20 minutos",
-                            "Bicicleta ergométrica por 15 minutos"
-                        ],
-                        '3': [
-                            "Corrida moderada por 30 minutos",
-                            "Bicicleta ergométrica por 20 minutos"
-                        ],
-                        '5': [
-                            "Corrida intensa por 40 minutos",
-                            "Bicicleta ergométrica por 30 minutos"
-                        ]
-                    },
-                    Avançado: {
-                        '1': [
-                            "Corrida intensa por 30 minutos",
-                            "Bicicleta ergométrica por 20 minutos"
-                        ],
-                        '3': [
-                            "Corrida intensa por 40 minutos",
-                            "Bicicleta ergométrica por 30 minutos"
-                        ],
-                        '5': [
-                            "Corrida intensa por 50 minutos",
-                            "Bicicleta ergométrica por 40 minutos"
-                        ]
-                    }
-                },
-                PesoLivre: {
-                    'Perda de Peso': {
-                        Iniciante: {
-                            '1': [
-                                "Agachamento com halteres - 3 séries de 12 repetições",
-                                "Supino reto com halteres - 3 séries de 12 repetições",
-                                "Remada com halteres - 3 séries de 12 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com halteres - 4 séries de 12 repetições",
-                                "Supino reto com halteres - 4 séries de 12 repetições",
-                                "Remada com halteres - 4 séries de 12 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Supino reto com halteres - 4 séries de 15 repetições",
-                                "Remada com halteres - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Intermediário: {
-                            '1': [
-                                "Agachamento com halteres - 4 séries de 12 repetições",
-                                "Supino reto com halteres - 4 séries de 12 repetições",
-                                "Remada com halteres - 4 séries de 12 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Supino reto com halteres - 4 séries de 15 repetições",
-                                "Remada com halteres - 4 séries de 15 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com barra - 4 séries de 15 repetições",
-                                "Supino reto com barra - 4 séries de 15 repetições",
-                                "Remada com barra - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Avançado: {
-                            '1': [
-                                "Agachamento com barra - 4 séries de 15 repetições",
-                                "Supino reto com barra - 4 séries de 15 repetições",
-                                "Remada com barra - 4 séries de 15 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com barra - 4 séries de 20 repetições",
-                                "Supino reto com barra - 4 séries de 20 repetições",
-                                "Remada com barra - 4 séries de 20 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com barra - 4 séries de 20 repetições",
-                                "Supino reto com barra - 4 séries de 20 repetições",
-                                "Remada com barra - 4 séries de 20 repetições"
-                            ]
-                        }
-                    },
-                    'Ganho de Massa': {
-                        Iniciante: {
-                            '1': [
-                                "Agachamento com halteres - 3 séries de 12 repetições",
-                                "Supino reto com halteres - 3 séries de 12 repetições",
-                                "Remada com halteres - 3 séries de 12 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com halteres - 4 séries de 12 repetições",
-                                "Supino reto com halteres - 4 séries de 12 repetições",
-                                "Remada com halteres - 4 séries de 12 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com halteres - 4 séries de 15 repetições",
-                                "Supino reto com halteres - 4 séries de 15 repetições",
-                                "Remada com halteres - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Intermediário: {
-                            '1': [
-                                "Agachamento com barra - 4 séries de 12 repetições",
-                                "Supino reto com barra - 4 séries de 12 repetições",
-                                "Remada com barra - 4 séries de 12 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com barra - 4 séries de 15 repetições",
-                                "Supino reto com barra - 4 séries de 15 repetições",
-                                "Remada com barra - 4 séries de 15 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com barra - 4 séries de 15 repetições",
-                                "Supino reto com barra - 4 séries de 15 repetições",
-                                "Remada com barra - 4 séries de 15 repetições"
-                            ]
-                        },
-                        Avançado: {
-                            '1': [
-                                "Agachamento com barra - 4 séries de 15 repetições",
-                                "Supino reto com barra - 4 séries de 15 repetições",
-                                "Remada com barra - 4 séries de 15 repetições"
-                            ],
-                            '3': [
-                                "Agachamento com barra - 4 séries de 20 repetições",
-                                "Supino reto com barra - 4 séries de 20 repetições",
-                                "Remada com barra - 4 séries de 20 repetições"
-                            ],
-                            '5': [
-                                "Agachamento com barra - 4 séries de 20 repetições",
-                                "Supino reto com barra - 4 séries de 20 repetições",
-                                "Remada com barra - 4 séries de 20 repetições"
-                            ]
-                        }
-                    }
-                }
-            };
-
-            if (!exercicios[params.tipoTreino]) {
-                return 'Tipo de treino não encontrado.<br>';
-            }
-
-            const exerciciosTipoTreino = exercicios[params.tipoTreino][params.objetivo] || {};
-            const nivelExercicio = exerciciosTipoTreino[params.nivel] || {};
-            const planoExercicio = nivelExercicio[params.dias] || [];
-
-            plano += planoExercicio.length ? planoExercicio.join('<br>') : 'Nenhum exercício encontrado para os parâmetros selecionados.<br>';
-
-            return plano;
+        function gerarPlanoTreino(tipoTreino, experiencia, dias) {
+    // Planos de treino Funcional
+    const treinoFuncional = {
+        iniciante: {
+            1: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            3: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            5: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ]
+        },
+        intermediario: {
+            1: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            3: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            5: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ]
+        },
+        avancado: {
+            1: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            3: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            5: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ]
         }
+    };
 
-        document.getElementById('resultado').innerHTML = gerarPlano(getQueryParams());
-    </script>
-</body>
-</html>
+    // Planos de treino Cardio
+    const treinoCardio = {
+        iniciante: {
+            1: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            3: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            5: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ]
+        },
+        intermediario: {
+            1: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            3: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            5: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ]
+        },
+        avancado: {
+            1: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            3: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ],
+            5: [
+                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
+                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
+            ]
+        }
+    };
+
+    // Escolher o treino baseado no tipo
+    let planoSelecionado;
+    if (tipoTreino === 'funcional') {
+        planoSelecionado = treinoFuncional[experiencia][dias];
+    } else if (tipoTreino === 'cardio') {
+        planoSelecionado = treinoCardio[experiencia][dias];
+    }
+
+    // Verificar se o plano existe
+    if (planoSelecionado) {
+        return planoSelecionado.join("<br>");
+    } else {
+        return "Plano de treino não encontrado para essa combinação de tipo, experiência e dias.";
+    }
+}
+
+// Exemplo de uso da função
+const tipoTreino = "cardio"; // Pode ser "funcional" ou "cardio"
+const experiencia = "iniciante"; // Pode ser "iniciante", "intermediario" ou "avancado"
+const dias = 3; // Número de dias selecionados
+const planoGerado = gerarPlanoTreino(tipoTreino, experiencia, dias);
+
+// Exibir o resultado no console (ou em um elemento HTML na sua página)
+console.log(planoGerado);
+document.getElementById("resultado").innerHTML = planoGerado;

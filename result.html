@@ -13,18 +13,21 @@
         <a href="index.html" class="btn">Voltar</a>
     </div>
 
+    <script src="scripts.js"></script>
     <script>
+        // Função para obter parâmetros da URL
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
             return {
                 biotipo: params.get('biotipo'),
                 dias: params.get('dias'),
-                tipoTreino: params.getAll('tipoTreino'),
+                tipoTreino: params.get('tipoTreino'),
                 objetivo: params.get('objetivo'),
                 nivel: params.get('nivel'),
             };
         }
 
+        // Função para gerar o plano de treino
         function gerarPlano(params) {
             console.log('Parâmetros recebidos:', params); // Adicione esta linha para verificar os parâmetros
 
@@ -46,10 +49,10 @@
 
             // Tipo de Treino
             plano += `<h3>Tipo de Treino:</h3>`;
-            plano += params.tipoTreino.length ? params.tipoTreino.join(', ') : 'Nenhum tipo de treino selecionado.<br>';
+            plano += params.tipoTreino ? params.tipoTreino : 'Nenhum tipo de treino selecionado.<br>';
 
             // Objetivo (omitido para o treino de Cardio)
-            if (params.tipoTreino.includes('Cardio')) {
+            if (params.tipoTreino === 'Cardio') {
                 plano += `<h3>Objetivo:</h3>`;
                 plano += 'Não aplicável para Cardio.<br>';
             } else {
@@ -68,6 +71,7 @@
             return plano;
         }
 
+        // Função para descrever o biotipo
         function descreverBiotipo(biotipo) {
             switch(biotipo) {
                 case 'Ectomorfo':
@@ -81,139 +85,83 @@
             }
         }
 
-        function gerarPlanoTreino(tipoTreino, experiencia, dias) {
-    // Planos de treino Funcional
-    const treinoFuncional = {
-        iniciante: {
-            1: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            3: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            5: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ]
-        },
-        intermediario: {
-            1: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            3: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            5: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ]
-        },
-        avancado: {
-            1: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            3: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            5: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ]
+        // Função para gerar a rotina de treino
+        function gerarRotinaTreino(params) {
+            let planoGerado = "";
+
+            // Planos de treino Funcional
+            const treinoFuncional = {
+                iniciante: {
+                    1: ["Dia 1: Corrida 10min, Pular Corda 5min, Agachamentos 3x15", "Dia 2: Flexões 3x10, Abdominais 3x20"],
+                    3: ["Dia 1: Corrida 10min, Pular Corda 5min", "Dia 2: Agachamentos 3x15, Flexões 3x10", "Dia 3: Abdominais 3x20, Burpees 3x10"],
+                    5: ["Dia 1: Corrida 10min, Flexões 3x10", "Dia 2: Pular Corda 5min, Abdominais 3x20", "Dia 3: Agachamentos 3x15", "Dia 4: Burpees 3x10", "Dia 5: Corrida 10min"]
+                },
+                intermediario: {
+                    1: ["Dia 1: Corrida 20min, Pular Corda 10min, Agachamentos 4x20", "Dia 2: Flexões 4x15, Abdominais 4x25"],
+                    3: ["Dia 1: Corrida 20min, Pular Corda 10min", "Dia 2: Agachamentos 4x20, Flexões 4x15", "Dia 3: Abdominais 4x25, Burpees 4x15"],
+                    5: ["Dia 1: Corrida 20min, Flexões 4x15", "Dia 2: Pular Corda 10min, Abdominais 4x25", "Dia 3: Agachamentos 4x20", "Dia 4: Burpees 4x15", "Dia 5: Corrida 20min"]
+                },
+                avancado: {
+                    1: ["Dia 1: Corrida 30min, Pular Corda 15min, Agachamentos 5x20", "Dia 2: Flexões 5x20, Abdominais 5x30"],
+                    3: ["Dia 1: Corrida 30min, Pular Corda 15min", "Dia 2: Agachamentos 5x20, Flexões 5x20", "Dia 3: Abdominais 5x30, Burpees 5x20"],
+                    5: ["Dia 1: Corrida 30min, Flexões 5x20", "Dia 2: Pular Corda 15min, Abdominais 5x30", "Dia 3: Agachamentos 5x20", "Dia 4: Burpees 5x20", "Dia 5: Corrida 30min"]
+                }
+            };
+
+            // Planos de treino Cardio
+            const treinoCardio = {
+                iniciante: {
+                1: ["Dia 1: Corrida 10min, Pular Corda 10min"],
+                3: ["Dia 1: Corrida 10min", "Dia 2: Pular Corda 10min", "Dia 3: Corrida 10min"],
+                5: ["Dia 1: Corrida 10min", "Dia 2: Pular Corda 10min", "Dia 3: Corrida 10min", "Dia 4: Pular Corda 10min", "Dia 5: Corrida 10min"]
+            },
+            intermediario: {
+                1: ["Dia 1: Corrida 20min, Pular Corda 15min"],
+                3: ["Dia 1: Corrida 20min", "Dia 2: Pular Corda 15min", "Dia 3: Corrida 20min"],
+                5: ["Dia 1: Corrida 20min", "Dia 2: Pular Corda 15min", "Dia 3: Corrida 30min", "Dia 4: Pular Corda 15min", "Dia 5: Corrida 20min"]
+            },
+            avancado: {
+                1: ["Dia 1: Corrida 30min, Pular Corda 20min"],
+                3: ["Dia 1: Corrida 30min", "Dia 2: Pular Corda 20min", "Dia 3: Corrida 30min"],
+                5: ["Dia 1: Corrida 30min", "Dia 2: Pular Corda 20min", "Dia 3: Corrida 30min", "Dia 4: Pular Corda 20min", "Dia 5: Corrida 30min"]
+            }
+            };
+
+            // Planos de treino Peso Livre
+            const treinoPesoLivre = {
+                iniciante: {
+                    1: ["Dia 1: Treino Total (Peito, Costas, Pernas, Ombros, Braços)"],
+                    3: ["Dia 1: Peito e Costas", "Dia 2: Pernas e Ombros", "Dia 3: Braços e Core"],
+                    5: ["Dia 1: Peito", "Dia 2: Costas", "Dia 3: Pernas", "Dia 4: Ombros", "Dia 5: Braços"]
+                },
+                intermediario: {
+                    1: ["Dia 1: Treino Total (Peito, Costas, Pernas, Ombros, Braços)"],
+                    3: ["Dia 1: Peito e Costas", "Dia 2: Pernas e Ombros", "Dia 3: Braços e Core"],
+                    5: ["Dia 1: Peito e Ombros", "Dia 2: Costas e Braços", "Dia 3: Pernas", "Dia 4: Peito e Costas", "Dia 5: Pernas e Ombros"]
+                },
+                avancado: {
+                    1: ["Dia 1: Treino Total (Peito, Costas, Pernas, Ombros, Braços)"],
+                    3: ["Dia 1: Peito e Costas", "Dia 2: Pernas e Ombros", "Dia 3: Braços e Core"],
+                    5: ["Dia 1: Peito e Ombros", "Dia 2: Costas e Braços", "Dia 3: Pernas", "Dia 4: Peito e Costas", "Dia 5: Pernas e Ombros"]
+                }
+            };
+
+            // Gerar rotina de treino com base nos parâmetros
+            if (params.tipoTreino === 'Funcional') {
+                planoGerado = treinoFuncional[params.nivel][params.dias];
+            } else if (params.tipoTreino === 'Cardio') {
+                planoGerado = treinoCardio[params.dias];
+            } else if (params.tipoTreino === 'Peso Livre') {
+                planoGerado = treinoPesoLivre[params.nivel][params.dias];
+            } else {
+                planoGerado = 'Tipo de treino não reconhecido.';
+            }
+
+            return planoGerado.join('<br>');
         }
-    };
 
-    // Planos de treino Cardio
-    const treinoCardio = {
-        iniciante: {
-            1: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            3: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            5: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ]
-        },
-        intermediario: {
-            1: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            3: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            5: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ]
-        },
-        avancado: {
-            1: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            3: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ],
-            5: [
-                "Dia 1: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 2: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 3: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 4: Corrida 10min, Pular Corda 5min, Ciclismo 5min",
-                "Dia 5: Corrida 10min, Pular Corda 5min, Ciclismo 5min"
-            ]
-        }
-    };
-
-    // Escolher o treino baseado no tipo
-    let planoSelecionado;
-    if (tipoTreino === 'funcional') {
-        planoSelecionado = treinoFuncional[experiencia][dias];
-    } else if (tipoTreino === 'cardio') {
-        planoSelecionado = treinoCardio[experiencia][dias];
-    }
-
-    // Verificar se o plano existe
-    if (planoSelecionado) {
-        return planoSelecionado.join("<br>");
-    } else {
-        return "Plano de treino não encontrado para essa combinação de tipo, experiência e dias.";
-    }
-}
-
-// Exemplo de uso da função
-const tipoTreino = "cardio"; // Pode ser "funcional" ou "cardio"
-const experiencia = "iniciante"; // Pode ser "iniciante", "intermediario" ou "avancado"
-const dias = 3; // Número de dias selecionados
-const planoGerado = gerarPlanoTreino(tipoTreino, experiencia, dias);
-
-// Exibir o resultado no console (ou em um elemento HTML na sua página)
-console.log(planoGerado);
-document.getElementById("resultado").innerHTML = planoGerado;
+        // Obtém os parâmetros da URL e gera o plano de treino
+        document.getElementById('resultado').innerHTML = gerarPlano(getQueryParams());
+    </script>
+</body>
+</html>

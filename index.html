@@ -12,13 +12,28 @@
             const objetivo = document.getElementById('objetivo');
 
             if (tipoTreino === 'Peso Livre') {
-                // Habilitar o campo de objetivo
                 objetivo.disabled = false;
             } else {
-                // Desabilitar o campo de objetivo
                 objetivo.disabled = true;
-                objetivo.value = ""; // Limpar seleção
+                objetivo.value = "";
             }
+        }
+
+        // Função para gerar o plano de treino
+        function gerarPlano(event) {
+            event.preventDefault();  // Evita o reload da página
+
+            const biotipo = document.getElementById('biotipo').value;
+            const dias = document.getElementById('dias').value;
+            const objetivo = document.getElementById('objetivo').value;
+            const nivel = document.getElementById('nivel').value;
+            const tipoTreino = document.querySelector('input[name="tipoTreino"]:checked').value;
+
+            // Construir a URL para a página de resultado
+            const resultadoUrl = `result.html?biotipo=${encodeURIComponent(biotipo)}&dias=${encodeURIComponent(dias)}&tipoTreino=${encodeURIComponent(tipoTreino)}&objetivo=${encodeURIComponent(objetivo)}&nivel=${encodeURIComponent(nivel)}`;
+
+            // Redirecionar para a página de resultado com parâmetros na URL
+            window.location.href = resultadoUrl;
         }
 
         // Adiciona eventos ao carregar a página
@@ -34,7 +49,7 @@
 <body>
     <div class="container">
         <h1>Crie Seu Plano de Treino</h1>
-        <form id="treinoForm" action="result.html" method="get">
+        <form id="treinoForm" onsubmit="gerarPlano(event)">
             <label for="biotipo">Biotipo Corporal:</label>
             <select id="biotipo" name="biotipo" required>
                 <option value="Ectomorfo">Ectomorfo</option>

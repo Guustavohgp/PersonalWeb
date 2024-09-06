@@ -43,72 +43,125 @@ function gerarRotinaTreino(params) {
     const treinoPesoLivre = {
         'ganho de massa muscular': {
             iniciante: {
-                1: ["Treino corpo inteiro: Peito e Tríceps - Flexões 3x10, Supino com Halteres 3x12, Costas e Bíceps - Remada 3x12, Rosca Bíceps 3x12, Pernas - Agachamentos 4x15, Leg Press 3x12, Ombros - Elevação Lateral 3x12, Desenvolvimento com Halteres 3x12, Abdômen e Cardio - Abdominais 4x20, Corrida 15min" ],
-                3: ["Dia 1: Peito e Tríceps - Flexões 3x10, Supino com Halteres 3x12", 
-                    "Dia 2: Costas e Bíceps - Remada 3x12, Rosca Bíceps 3x12", 
-                    "Dia 3: Pernas e Abdômen - Agachamentos 3x15, Abdominais 3x20"],
-                5: ["Dia 1: Peito - e Tríceos - Flexões 3x10, Supino com Halteres 3x12", 
-                    "Dia 2: Costas e Bíceps - Remada Curvada 3x12, Pulldown 3x12, Rosca Bíceps 3x12", 
-                    "Dia 3: Pernas - Agachamentos 4x15, Leg Press 3x12", 
-                    "Dia 4: Ombros - Elevação Lateral 3x12, Desenvolvimento com Halteres 3x12", 
-                    "Dia 5: Abdômen e Cardio - Abdominais 4x20, Corrida 15min"]
+                1: [
+                    "Treino 1 dia (Corpo inteiro):",
+                    "Peito: Supino reto 3x12, Flexões 3x15",
+                    "Tríceps: Tríceps banco 3x12",
+                    "Costas: Puxada na polia 3x12",
+                    "Bíceps: Rosca direta 3x12",
+                    "Pernas: Agachamento 3x15",
+                    "Abdômen: Abdominais 3x20",
+                    "Ombros: Elevação lateral 3x12",
+                    "Cardio: Corrida 15min"
+                ],
+                3: [
+                    "Dia 1: Peito e Tríceps",
+                    "Peito: Supino reto 3x12, Flexões 3x15",
+                    "Tríceps: Tríceps banco 3x12",
+                    "Dia 2: Costas e Bíceps",
+                    "Costas: Puxada na polia 3x12, Remada curvada 3x12",
+                    "Bíceps: Rosca direta 3x12",
+                    "Dia 3: Pernas, Ombros e Abdômen",
+                    "Pernas: Agachamento 3x15, Leg press 3x12",
+                    "Ombros: Elevação lateral 3x12, Desenvolvimento militar 3x12",
+                    "Abdômen: Abdominais 3x20",
+                    "Cardio: Corrida 10min"
+                ],
+                5: [
+                    "Dia 1: Peito",
+                    "Peito: Supino reto 4x12, Supino inclinado 4x10",
+                    "Dia 2: Costas",
+                    "Costas: Remada curvada 4x12, Puxada na polia 4x10",
+                    "Dia 3: Pernas",
+                    "Pernas: Agachamento 4x15, Leg press 4x12",
+                    "Dia 4: Ombros e Tríceps",
+                    "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
+                    "Tríceps: Tríceps polia 4x12",
+                    "Dia 5: Abdômen, Bíceps e Cardio",
+                    "Abdômen: Abdominais 4x30",
+                    "Bíceps: Rosca direta 4x10",
+                    "Cardio: Corrida 20min"
+                ]
             },
             intermediario: {
-                1: ["Treino corpo inteiro: Peito e Tríceps - Flexões 4x12, Supino 4x10, Costas e Bíceps - Remada 4x10, Rosca Bíceps 4x10, Pernas - Agachamentos 4x20, Leg Press 4x12, Ombros - Elevação Lateral 4x12, Desenvolvimento com Halteres 4x10, Abdômen e Cardio - Abdominais 5x30, Corrida 20min"],
-                3: ["Dia 1: Peito e Tríceps - Flexões 4x12, Supino 4x10", 
-                    "Dia 2: Costas e Bíceps - Remada 4x10, Rosca Bíceps 4x10", 
-                    "Dia 3: Pernas e Abdômen - Agachamentos 4x20, Abdominais 4x25"],
-                5: ["Dia 1: Peito - Supino 4x10, Flexões 4x12", 
-                    "Dia 2: Costas e Bíceps- Remada Curvada 4x12, Pulldown 4x10, Rosca Bíceps 4x10", 
-                    "Dia 3: Pernas - Agachamento 4x15, Leg Press 4x12", 
-                    "Dia 4: Ombros - Desenvolvimento com Halteres 4x10, Elevação Lateral 4x12", 
-                    "Dia 5: Abdômen e Cardio - Abdominais 5x30, Corrida 20min"]
-            },
-            avancado: {
-                1: ["Treino corpo inteiro: Peito e Tríceps - Flexões 5x15, Supino 5x8, Costas e Bíceps - Remada 5x8, Rosca Bíceps 5x10, Pernas - Agachamentos 5x15, Leg Press 5x12, Ombros - Elevação Lateral 5x12, Desenvolvimento com Halteres 5x10, Abdômen e Cardio - Abdominais 5x40, Corrida 30min"],
-                3: ["Dia 1: Peito e Tríceps - Supino 5x8, Flexões 5x15", 
-                    "Dia 2: Costas e Bíceps - Remada 5x8, Rosca Bíceps 5x10", 
-                    "Dia 3: Pernas e Abdômen - Agachamento 5x15, Abdominais 5x30"],
-                5: ["Dia 1: Peito - Supino 5x10, Flexões 5x15", 
-                    "Dia 2: Costas e Bíceps - Remada 5x12, Pulldown 5x10, Rosca Bíceps 5x10 ", 
-                    "Dia 3: Pernas - Agachamentos 5x15, Leg Press 5x12", 
-                    "Dia 4: Ombros - Desenvolvimento com Halteres 5x10, Elevação Lateral 5x12", 
-                    "Dia 5: Abdômen e Cardio - Abdominais 5x40, Corrida 30min"]
+                1: [
+                    "Treino 1 dia (Corpo inteiro):",
+                    "Peito: Supino reto 4x10, Flexões 4x12",
+                    "Tríceps: Tríceps polia 4x10",
+                    "Costas: Remada curvada 4x10",
+                    "Bíceps: Rosca direta 4x10",
+                    "Pernas: Agachamento 4x12",
+                    "Abdômen: Abdominais 4x25",
+                    "Ombros: Desenvolvimento militar 4x10",
+                    "Cardio: Corrida 20min"
+                ],
+                3: [
+                    "Dia 1: Peito e Tríceps",
+                    "Peito: Supino reto 4x10, Supino inclinado 4x10",
+                    "Tríceps: Tríceps polia 4x10",
+                    "Dia 2: Costas e Bíceps",
+                    "Costas: Remada curvada 4x10, Puxada na polia 4x10",
+                    "Bíceps: Rosca direta 4x10",
+                    "Dia 3: Pernas, Ombros, Abdômen e Cardio",
+                    "Pernas: Agachamento 4x12, Leg press 4x12",
+                    "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
+                    "Abdômen: Abdominais 4x25",
+                    "Cardio: Corrida 15min"
+                ],
+                5: [
+                    "Dia 1: Peito",
+                    "Peito: Supino reto 4x12, Supino inclinado 4x10",
+                    "Dia 2: Costas",
+                    "Costas: Remada curvada 4x10, Puxada na polia 4x10",
+                    "Dia 3: Pernas",
+                    "Pernas: Agachamento 4x12, Leg press 4x12",
+                    "Dia 4: Ombros e Tríceps",
+                    "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
+                    "Tríceps: Tríceps polia 4x10",
+                    "Dia 5: Abdômen, Bíceps e Cardio",
+                    "Abdômen: Abdominais 4x30",
+                    "Bíceps: Rosca direta 4x10",
+                    "Cardio: Corrida 25min"
+                ]
             }
         },
+    
         'condicionamento fisico geral': {
             iniciante: {
-                1: ["Treino corpo inteiro: Correr 10min, Pular Corda 5min, Agachamentos 3x15, Flexões 3x10, Abdominais 3x20."],
-                3: ["Dia 1: Peito e Tríceps - Flexões 3x10, Supino com Halteres 3x12", 
-                    "Dia 2: Costas e Bíceps - Remada Curvada 3x12, Rosca Bíceps 3x12", 
-                    "Dia 3: Pernas e Abdômen - Agachamentos 3x15, Abdominais 3x20"],
-                5: ["Dia 1: Peito - Flexões 3x10, Supino com Halteres 3x12", 
-                    "Dia 2: Costas - Remada Curvada 3x12, Pulldown 3x12", 
-                    "Dia 3: Pernas - Agachamentos 4x15, Leg Press 3x12", 
-                    "Dia 4: Ombros - Elevação Lateral 3x12, Desenvolvimento com Halteres 3x12", 
-                    "Dia 5: Abdômen e Cardio - Abdominais 4x20, Corrida 15min"]
-            },
-            intermediario: {
-                1: ["Treino corpo inteiro: Corrida intensa 15min, Pular Corda 10min, Agachamentos 4x20, Flexões 4x15, Abdominais 4x25."],
-                3: ["Dia 1: Peito e Tríceps - Flexões 4x12, Supino 4x10", 
-                    "Dia 2: Costas e Bíceps - Remada Curvada 4x10, Rosca Bíceps 4x12", 
-                    "Dia 3: Pernas e Abdômen - Agachamentos 4x20, Abdominais 4x25"],
-                5: ["Dia 1: Peito - Supino 4x10, Flexões 4x12", 
-                    "Dia 2: Costas - Remada Curvada 4x12, Pulldown 4x10", 
-                    "Dia 3: Pernas - Agachamento 4x15, Leg Press 4x12", 
-                    "Dia 4: Ombros - Desenvolvimento com Halteres 4x10, Elevação Lateral 4x12", 
-                    "Dia 5: Abdômen e Cardio - Abdominais 5x30, Corrida 20min"]
-            },
-            avancado: {
-                1: ["Treino corpo inteiro: Corrida forte 20min, Pular Corda 15min, Agachamentos 5x20, Flexões 5x20, Abdominais 5x30."],
-                3: ["Dia 1: Peito e Tríceps - Supino 5x8, Flexões 5x15", 
-                    "Dia 2: Costas e Bíceps - Remada Curvada 5x8, Rosca Direta 5x10", 
-                    "Dia 3: Pernas e Abdômen - Agachamento 5x15, Abdominais 5x30"],
-                5: ["Dia 1: Peito - Supino 5x10, Flexões 5x15", 
-                    "Dia 2: Costas - Remada Curvada 5x12, Pulldown 5x10", 
-                    "Dia 3: Pernas - Agachamentos 5x15, Leg Press 5x12", 
-                    "Dia 4: Ombros - Desenvolvimento Militar 5x10, Elevação Lateral 5x12", 
-                    "Dia 5: Abdômen e Cardio - Abdominais 5x40, Corrida 30min"]
+                1: [
+                    "Treino 1 dia (Corpo inteiro):",
+                    "Peito: Flexões 3x15",
+                    "Pernas: Agachamento 3x15",
+                    "Cardio: Corrida 15min, Pular Corda 10min"
+                ],
+                3: [
+                    "Dia 1: Peito, Tríceps e Cardio",
+                    "Peito: Supino 3x12, Flexões 3x15",
+                    "Tríceps: Tríceps banco 3x12",
+                    "Cardio: Corrida 15min",
+                    "Dia 2: Pernas e Costas",
+                    "Pernas: Agachamento 3x15, Leg press 3x12",
+                    "Costas: Remada curvada 3x12",
+                    "Dia 3: Ombros, Abdômen e Cardio",
+                    "Ombros: Desenvolvimento militar 3x12",
+                    "Abdômen: Abdominais 3x20",
+                    "Cardio: Corrida 10min"
+                ],
+                5: [
+                    "Dia 1: Peito",
+                    "Peito: Supino reto 3x12, Flexões 3x15",
+                    "Dia 2: Costas e Cardio",
+                    "Costas: Remada curvada 3x12",
+                    "Cardio: Corrida 20min",
+                    "Dia 3: Pernas",
+                    "Pernas: Agachamento 4x15, Leg press 3x12",
+                    "Dia 4: Ombros e Tríceps",
+                    "Ombros: Desenvolvimento militar 3x12",
+                    "Tríceps: Tríceps banco 3x12",
+                    "Dia 5: Abdômen e Cardio",
+                    "Abdômen: Abdominais 4x25",
+                    "Cardio: Corrida 15min"
+                ]
             }
         }
     };

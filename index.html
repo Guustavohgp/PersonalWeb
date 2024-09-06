@@ -15,7 +15,7 @@
                 objetivo.disabled = false;
             } else {
                 objetivo.disabled = true;
-                objetivo.value = "";
+                objetivo.value = "";  // Limpa o valor do campo quando desabilitado
             }
         }
 
@@ -25,7 +25,7 @@
 
             const biotipo = document.getElementById('biotipo').value;
             const dias = document.getElementById('dias').value;
-            const objetivo = document.getElementById('objetivo').value;
+            const objetivo = document.getElementById('objetivo').value || ""; // Valor vazio se desabilitado
             const nivel = document.getElementById('nivel').value;
             const tipoTreino = document.querySelector('input[name="tipoTreino"]:checked').value;
 

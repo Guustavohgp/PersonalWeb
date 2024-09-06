@@ -23,145 +23,16 @@
                 dias: params.get('dias'),
                 tipoTreino: params.get('tipoTreino'),
                 objetivo: params.get('objetivo'),
-                nivel: params.get('nivel'),
+                nivel: params.get('nivel')
             };
         }
 
-        // Função para gerar o plano de treino
-        function gerarPlano(params) {
-            console.log('Parâmetros recebidos:', params); // Adicione esta linha para verificar os parâmetros
-
-            let plano = '';
-
-            // Identificação do Biotipo Corporal
-            plano += `<h2>Biotipo Corporal: ${params.biotipo}</h2>`;
-            plano += descreverBiotipo(params.biotipo);
-
-            // Periodização
-            plano += `<h3>Periodização:</h3>`;
-            if (params.dias === '1') {
-                plano += 'Treino Full Body (Treino completo de todos os grupos musculares em uma única sessão).<br>';
-            } else if (params.dias === '3') {
-                plano += 'Treino ABC (Divisão dos grupos musculares em três sessões diferentes).<br>';
-            } else if (params.dias === '5') {
-                plano += 'Treino ABCDE (Divisão avançada, com um grupo muscular ou função trabalhada por dia).<br>';
-            }
-
-            // Tipo de Treino
-            plano += `<h3>Tipo de Treino:</h3>`;
-            plano += params.tipoTreino ? params.tipoTreino : 'Nenhum tipo de treino selecionado.<br>';
-
-            // Objetivo (omitido para o treino de Cardio)
-            if (params.tipoTreino === 'Cardio') {
-                plano += `<h3>Objetivo:</h3>`;
-                plano += 'Não aplicável para Cardio.<br>';
-            } else {
-                plano += `<h3>Objetivo:</h3>`;
-                plano += params.objetivo ? params.objetivo : 'Nenhum objetivo selecionado.<br>';
-            }
-
-            // Nível de Experiência
-            plano += `<h3>Nível de Experiência:</h3>`;
-            plano += params.nivel ? params.nivel : 'Nível de experiência não selecionado.<br>';
-
-            // Rotina de Treino
-            plano += `<h3>Rotina de Treino:</h3>`;
-            plano += gerarRotinaTreino(params);
-
-            return plano;
-        }
-
-        // Função para descrever o biotipo
-        function descreverBiotipo(biotipo) {
-            switch(biotipo) {
-                case 'Ectomorfo':
-                    return 'Ectomorfo: Corpo mais magro, difícil ganhar peso e massa muscular.<br>';
-                case 'Mesomorfo':
-                    return 'Mesomorfo: Corpo naturalmente musculoso, facilidade para ganhar massa muscular e perder gordura.<br>';
-                case 'Endomorfo':
-                    return 'Endomorfo: Corpo com tendência a acumular gordura, maior dificuldade em perder peso.<br>';
-                default:
-                    return '';
-            }
-        }
-
-        // Função para gerar a rotina de treino
-        function gerarRotinaTreino(params) {
-            let planoGerado = "";
-
-            // Planos de treino Funcional
-            const treinoFuncional = {
-                iniciante: {
-                    1: ["Dia 1: Corrida 10min, Pular Corda 5min, Agachamentos 3x15", "Dia 2: Flexões 3x10, Abdominais 3x20"],
-                    3: ["Dia 1: Corrida 10min, Pular Corda 5min", "Dia 2: Agachamentos 3x15, Flexões 3x10", "Dia 3: Abdominais 3x20, Burpees 3x10"],
-                    5: ["Dia 1: Corrida 10min, Flexões 3x10", "Dia 2: Pular Corda 5min, Abdominais 3x20", "Dia 3: Agachamentos 3x15", "Dia 4: Burpees 3x10", "Dia 5: Corrida 10min"]
-                },
-                intermediario: {
-                    1: ["Dia 1: Corrida 20min, Pular Corda 10min, Agachamentos 4x20", "Dia 2: Flexões 4x15, Abdominais 4x25"],
-                    3: ["Dia 1: Corrida 20min, Pular Corda 10min", "Dia 2: Agachamentos 4x20, Flexões 4x15", "Dia 3: Abdominais 4x25, Burpees 4x15"],
-                    5: ["Dia 1: Corrida 20min, Flexões 4x15", "Dia 2: Pular Corda 10min, Abdominais 4x25", "Dia 3: Agachamentos 4x20", "Dia 4: Burpees 4x15", "Dia 5: Corrida 20min"]
-                },
-                avancado: {
-                    1: ["Dia 1: Corrida 30min, Pular Corda 15min, Agachamentos 5x20", "Dia 2: Flexões 5x20, Abdominais 5x30"],
-                    3: ["Dia 1: Corrida 30min, Pular Corda 15min", "Dia 2: Agachamentos 5x20, Flexões 5x20", "Dia 3: Abdominais 5x30, Burpees 5x20"],
-                    5: ["Dia 1: Corrida 30min, Flexões 5x20", "Dia 2: Pular Corda 15min, Abdominais 5x30", "Dia 3: Agachamentos 5x20", "Dia 4: Burpees 5x20", "Dia 5: Corrida 30min"]
-                }
-            };
-
-            // Planos de treino Cardio
-            const treinoCardio = {
-                iniciante: {
-                1: ["Dia 1: Corrida 10min, Pular Corda 10min"],
-                3: ["Dia 1: Corrida 10min", "Dia 2: Pular Corda 10min", "Dia 3: Corrida 10min"],
-                5: ["Dia 1: Corrida 10min", "Dia 2: Pular Corda 10min", "Dia 3: Corrida 10min", "Dia 4: Pular Corda 10min", "Dia 5: Corrida 10min"]
-            },
-            intermediario: {
-                1: ["Dia 1: Corrida 20min, Pular Corda 15min"],
-                3: ["Dia 1: Corrida 20min", "Dia 2: Pular Corda 15min", "Dia 3: Corrida 20min"],
-                5: ["Dia 1: Corrida 20min", "Dia 2: Pular Corda 15min", "Dia 3: Corrida 30min", "Dia 4: Pular Corda 15min", "Dia 5: Corrida 20min"]
-            },
-            avancado: {
-                1: ["Dia 1: Corrida 30min, Pular Corda 20min"],
-                3: ["Dia 1: Corrida 30min", "Dia 2: Pular Corda 20min", "Dia 3: Corrida 30min"],
-                5: ["Dia 1: Corrida 30min", "Dia 2: Pular Corda 20min", "Dia 3: Corrida 30min", "Dia 4: Pular Corda 20min", "Dia 5: Corrida 30min"]
-            }
-            };
-
-            // Planos de treino Peso Livre
-            const treinoPesoLivre = {
-                iniciante: {
-                    1: ["Dia 1: Treino Total (Peito, Costas, Pernas, Ombros, Braços)"],
-                    3: ["Dia 1: Peito e Costas", "Dia 2: Pernas e Ombros", "Dia 3: Braços e Core"],
-                    5: ["Dia 1: Peito", "Dia 2: Costas", "Dia 3: Pernas", "Dia 4: Ombros", "Dia 5: Braços"]
-                },
-                intermediario: {
-                    1: ["Dia 1: Treino Total (Peito, Costas, Pernas, Ombros, Braços)"],
-                    3: ["Dia 1: Peito e Costas", "Dia 2: Pernas e Ombros", "Dia 3: Braços e Core"],
-                    5: ["Dia 1: Peito e Ombros", "Dia 2: Costas e Braços", "Dia 3: Pernas", "Dia 4: Peito e Costas", "Dia 5: Pernas e Ombros"]
-                },
-                avancado: {
-                    1: ["Dia 1: Treino Total (Peito, Costas, Pernas, Ombros, Braços)"],
-                    3: ["Dia 1: Peito e Costas", "Dia 2: Pernas e Ombros", "Dia 3: Braços e Core"],
-                    5: ["Dia 1: Peito e Ombros", "Dia 2: Costas e Braços", "Dia 3: Pernas", "Dia 4: Peito e Costas", "Dia 5: Pernas e Ombros"]
-                }
-            };
-
-            // Gerar rotina de treino com base nos parâmetros
-            if (params.tipoTreino === 'Funcional') {
-                planoGerado = treinoFuncional[params.nivel][params.dias];
-            } else if (params.tipoTreino === 'Cardio') {
-                planoGerado = treinoCardio[params.dias];
-            } else if (params.tipoTreino === 'Peso Livre') {
-                planoGerado = treinoPesoLivre[params.nivel][params.dias];
-            } else {
-                planoGerado = 'Tipo de treino não reconhecido.';
-            }
-
-            return planoGerado.join('<br>');
-        }
-
-        // Obtém os parâmetros da URL e gera o plano de treino
-        document.getElementById('resultado').innerHTML = gerarPlano(getQueryParams());
+        // Exibir o plano de treino gerado
+        window.onload = function() {
+            const params = getQueryParams();
+            const plano = gerarRotinaTreino(params);
+            document.getElementById('resultado').innerHTML = plano;
+        };
     </script>
 </body>
 </html>

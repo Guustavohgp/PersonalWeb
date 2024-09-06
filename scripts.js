@@ -267,7 +267,7 @@ function gerarRotinaTreino(params) {
             ]
         }
     },
-            'condicionamento fisico geral': {
+            'condicionamento físico geral': {
         iniciante: {
             1: [
                 "Dia 1:",

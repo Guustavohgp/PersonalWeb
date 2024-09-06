@@ -44,7 +44,7 @@ function gerarRotinaTreino(params) {
         'ganho de massa muscular': {
             iniciante: {
                 1: [
-                    "Treino 1 dia (Corpo inteiro):",
+                    "Dia 1:",
                     "Peito: Supino reto 3x12, Flexões 3x15",
                     "Tríceps: Tríceps banco 3x12",
                     "Costas: Puxada na polia 3x12",
@@ -87,7 +87,7 @@ function gerarRotinaTreino(params) {
             
             intermediario: {
                 1: [
-                    "Treino 1 dia (Corpo inteiro):",
+                    "Dia 1:",
                     "Peito: Supino reto 4x10, Flexões 4x12",
                     "Tríceps: Tríceps banco 4x10",
                     "Costas: Puxada na polia 4x10",
@@ -128,7 +128,7 @@ function gerarRotinaTreino(params) {
             },
             avancado: {
                 1: [
-                    "Treino 1 dia (Corpo inteiro):",
+                    "Dia 1:",
                     "Peito: Supino reto 5x8, Flexões 5x8",
                     "Tríceps: Tríceps banco 5x8",
                     "Costas: Puxada na polia 5x8",
@@ -169,119 +169,130 @@ function gerarRotinaTreino(params) {
             }
         },
             'condicionamento fisico geral': {
-                iniciante: {
-                    1: [
-                        "Treino 1 dia (Corpo inteiro):",
-                        "Peito: Flexões 3x15",
-                        "Pernas: Agachamento 3x15",
-                        "Cardio: Corrida 15min, Pular Corda 10min"
-                    ],
-                    3: [
-                        "Dia 1: Peito, Tríceps e Cardio",
-                        "Peito: Supino 3x12, Flexões 3x15",
-                        "Tríceps: Tríceps banco 3x12",
-                        "Cardio: Corrida 15min",
-                        "Dia 2: Pernas e Costas",
-                        "Pernas: Agachamento 3x15, Leg press 3x12",
-                        "Costas: Remada curvada 3x12",
-                        "Dia 3: Ombros, Abdômen e Cardio",
-                        "Ombros: Desenvolvimento militar 3x12",
-                        "Abdômen: Abdominais 3x20",
-                        "Cardio: Corrida 10min"
-                    ],
-                    5: [
-                        "Dia 1: Peito",
-                        "Peito: Supino reto 3x12, Supino inclinado 3x12",
-                        "Dia 2: Pernas",
-                        "Pernas: Agachamento 3x15, Leg press 3x12",
-                        "Dia 3: Costas",
-                        "Costas: Remada curvada 3x12, Puxada na polia 3x12",
-                        "Dia 4: Ombros e Tríceps",
-                        "Ombros: Desenvolvimento militar 3x12, Elevação lateral 3x15",
-                        "Tríceps: Tríceps banco 3x12",
-                        "Dia 5: Abdômen e Cardio",
-                        "Abdômen: Abdominais 3x20",
-                        "Cardio: Corrida 20min"
-                    ]
-                },
-                intermediario: {
-                    1: [
-                        "Treino 1 dia (Corpo inteiro):",
-                        "Peito: Supino reto 4x10, Flexões 4x12",
-                        "Pernas: Agachamento 4x12",
-                        "Costas: Remada curvada 4x10",
-                        "Ombros: Desenvolvimento militar 4x10",
-                        "Abdômen: Abdominais 4x20",
-                        "Cardio: Corrida 20min, Pular Corda 10min"
-                    ],
-                    3: [
-                        "Dia 1: Peito, Tríceps e Cardio",
-                        "Peito: Supino reto 4x10, Supino inclinado 4x10",
-                        "Tríceps: Tríceps polia 4x12",
-                        "Cardio: Corrida 20min",
-                        "Dia 2: Pernas e Costas",
-                        "Pernas: Agachamento 4x12, Leg press 4x12",
-                        "Costas: Remada curvada 4x10",
-                        "Dia 3: Ombros, Abdômen e Cardio",
-                        "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
-                        "Abdômen: Abdominais 4x25",
-                        "Cardio: Corrida 15min"
-                    ],
-                    5: [
-                        "Dia 1: Peito",
-                        "Peito: Supino reto 4x10, Supino inclinado 4x10",
-                        "Dia 2: Pernas",
-                        "Pernas: Agachamento 4x12, Leg press 4x12",
-                        "Dia 3: Costas",
-                        "Costas: Remada curvada 4x10, Puxada alta 4x10",
-                        "Dia 4: Ombros e Tríceps",
-                        "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
-                        "Tríceps: Tríceps polia 4x12",
-                        "Dia 5: Abdômen e Cardio",
-                        "Abdômen: Abdominais 4x25",
-                        "Cardio: Corrida 25min"
-                    ]
-                },
-                avancado: {
-                    1: [
-                        "Treino 1 dia (Corpo inteiro):",
-                        "Peito: Supino reto 5x8, Supino inclinado 4x10",
-                        "Pernas: Agachamento 5x10",
-                        "Costas: Remada curvada com barra 5x8",
-                        "Ombros: Desenvolvimento militar 5x8",
-                        "Abdômen: Abdominais com peso 4x30",
-                        "Cardio: Corrida 30min, Pular Corda 15min"
-                    ],
-                    3: [
-                        "Dia 1: Peito, Tríceps e Cardio",
-                        "Peito: Supino reto 5x8, Supino inclinado 4x10",
-                        "Tríceps: Tríceps polia 4x12",
-                        "Cardio: Corrida 25min",
-                        "Dia 2: Pernas e Costas",
-                        "Pernas: Agachamento 5x10, Leg press 4x12",
-                        "Costas: Remada curvada 5x8, Puxada alta 4x10",
-                        "Dia 3: Ombros, Abdômen e Cardio",
-                        "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
-                        "Abdômen: Abdominais com peso 4x30",
-                        "Cardio: Corrida 20min"
-                    ],
-                    5: [
-                        "Dia 1: Peito",
-                        "Peito: Supino reto 5x8, Supino inclinado 4x10",
-                        "Dia 2: Pernas",
-                        "Pernas: Agachamento 5x10, Leg press 4x12",
-                        "Dia 3: Costas",
-                        "Costas: Remada curvada 5x8, Puxada alta 4x10",
-                        "Dia 4: Ombros e Tríceps",
-                        "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
-                        "Tríceps: Tríceps polia 4x12",
-                        "Dia 5: Abdômen e Cardio",
-                        "Abdômen: Abdominais com peso 4x30",
-                        "Cardio: Corrida 30min"
-                    ]
-                }
-            }
-        };
+        iniciante: {
+            1: [
+                "Dia 1:",
+                "Peito: Flexões 3x15",
+                "Pernas: Agachamento 3x15",
+                "Cardio: Corrida 15min, Pular Corda 10min"
+            ],
+            3: [
+                "Dia 1: Peito e Cardio",
+                "Peito: Supino 3x12, Flexões 3x15",
+                "Cardio: Corrida 15min",
+                "Dia 2: Pernas e Costas",
+                "Pernas: Agachamento 3x15, Leg press 3x12",
+                "Costas: Remada curvada 3x12",
+                "Dia 3: Ombros, Abdômen e Cardio",
+                "Ombros: Desenvolvimento militar 3x12",
+                "Abdômen: Abdominais 3x20",
+                "Cardio: Corrida 15min"
+            ],
+            5: [
+                "Dia 1: Peito",
+                "Peito: Supino reto 3x12, Flexões 3x15",
+                "Cardio: Corrida 15min",
+                "Dia 2: Pernas",
+                "Pernas: Agachamento 3x15, Leg press 3x12",
+                "Cardio: Pular Corda 10min",
+                "Dia 3: Costas",
+                "Costas: Remada curvada 3x12, Puxada na polia 3x12",
+                "Cardio: Corrida 15min",
+                "Dia 4: Ombros e Tríceps",
+                "Ombros: Desenvolvimento militar 3x12, Elevação lateral 3x15",
+                "Tríceps: Tríceps banco 3x12",
+                "Cardio: Pular Corda 10min",
+                "Dia 5: Abdômen e Cardio",
+                "Abdômen: Abdominais 3x20",
+                "Cardio: Corrida 15min"
+            ]
+        },
+        intermediario: {
+            1: [
+                "Treino 1 dia (Corpo inteiro):",
+                "Peito: Supino reto 4x10, Flexões 4x12",
+                "Pernas: Agachamento 4x12",
+                "Costas: Remada curvada 4x10",
+                "Ombros: Desenvolvimento militar 4x10",
+                "Abdômen: Abdominais 4x20",
+                "Cardio: Corrida 20min, Pular Corda 15min"
+            ],
+            3: [
+                "Dia 1: Peito e Cardio",
+                "Peito: Supino reto 4x10, Supino inclinado 4x10",
+                "Cardio: Corrida 20min",
+                "Dia 2: Pernas e Costas",
+                "Pernas: Agachamento 4x12, Leg press 4x12",
+                "Costas: Remada curvada 4x10",
+                "Cardio: Pular Corda 15min",
+                "Dia 3: Ombros, Abdômen e Cardio",
+                "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x10",
+                "Abdômen: Abdominais 4x20",
+                "Cardio: Corrida 20min"
+            ],
+            5: [
+                "Dia 1: Peito",
+                "Peito: Supino reto 4x10, Supino inclinado 4x10",
+                "Cardio: Corrida 20min",
+                "Dia 2: Pernas",
+                "Pernas: Agachamento 4x12, Leg press 4x12",
+                "Cardio: Pular Corda 15min",
+                "Dia 3: Costas",
+                "Costas: Remada curvada 4x10, Puxada na polia 4x10",
+                "Cardio: Corrida 20min",
+                "Dia 4: Ombros e Tríceps",
+                "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x10",
+                "Tríceps: Tríceps polia 4x10",
+                "Cardio: Pular Corda 15min",
+                "Dia 5: Abdômen e Cardio",
+                "Abdômen: Abdominais 4x20",
+                "Cardio: Corrida 20min"
+            ]
+        },
+        avancado: {
+            1: [
+                "Treino 1 dia (Corpo inteiro):",
+                "Peito: Supino reto 5x8, Flexões 4x12",
+                "Pernas: Agachamento 5x10",
+                "Costas: Remada curvada 5x8",
+                "Ombros: Desenvolvimento militar 5x8",
+                "Abdômen: Abdominais 4x30",
+                "Cardio: Corrida 30min, Pular Corda 20min"
+            ],
+            3: [
+                "Dia 1: Peito e Cardio",
+                "Peito: Supino reto 5x8, Flexões 5x12",
+                "Cardio: Corrida 30min",
+                "Dia 2: Pernas e Costas",
+                "Pernas: Agachamento 5x10, Leg press 5x12",
+                "Costas: Remada curvada 5x10, Puxada na polia 5x10",
+                "Cardio: Pular Corda 20min",
+                "Dia 3: Ombros, Abdômen e Cardio",
+                "Ombros: Desenvolvimento militar 5x10, Elevação lateral 5x10",
+                "Abdômen: Abdominais 4x30",
+                "Cardio: Corrida 30min"
+            ],
+            5: [
+                "Dia 1: Peito",
+                "Peito: Supino reto 5x8, Flexões 5x12",
+                "Cardio: Corrida 30min",
+                "Dia 2: Pernas",
+                "Pernas: Agachamento 5x10, Leg press 5x12",
+                "Cardio: Pular Corda 20min",
+                "Dia 3: Costas",
+                "Costas: Remada curvada 5x10, Puxada na polia 5x10",
+                "Cardio: Corrida 30min",
+                "Dia 4: Ombros e Tríceps",
+                "Ombros: Desenvolvimento militar 5x10, Elevação lateral 5x10",
+                "Tríceps: Tríceps polia 5x10",
+                "Cardio: Pular Corda 20min",
+                "Dia 5: Abdômen e Cardio",
+                "Abdômen: Abdominais 4x30",
+                "Cardio: Corrida 30min"
+            ]
+        }
+    }
+};
 
     // Adicionar log para ver os parâmetros recebidos
     console.log("Parâmetros recebidos:", params);

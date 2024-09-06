@@ -8,12 +8,12 @@ function gerarRotinaTreino(params) {
             3: ["Dia 1: Corrida 10min, Pular Corda 5min", "Dia 2: Agachamentos 3x15, Flexões 3x10", "Dia 3: Abdominais 3x20, Burpees 3x10"],
             5: ["Dia 1: Corrida 10min, Flexões 3x10", "Dia 2: Pular Corda 5min, Abdominais 3x20", "Dia 3: Agachamentos 3x15", "Dia 4: Burpees 3x10", "Dia 5: Corrida 10min"]
         },
-        intermediario: {
+        intermediário: {
             1: ["Dia 1: Corrida 20min, Flexões 4x15", "Pular Corda 10min, Abdominais 4x25", "Agachamentos 4x20", "Burpees 4x15", "Corrida 20min"],
             3: ["Dia 1: Corrida 20min, Pular Corda 10min", "Dia 2: Agachamentos 4x20, Flexões 4x15", "Dia 3: Abdominais 4x25, Burpees 4x15"],
             5: ["Dia 1: Corrida 20min, Flexões 4x15", "Dia 2: Pular Corda 10min, Abdominais 4x25", "Dia 3: Agachamentos 4x20", "Dia 4: Burpees 4x15", "Dia 5: Corrida 20min"]
         },
-        avancado: {
+        avançado: {
             1: ["Dia 1: Corrida 30min, Flexões 5x20", "Pular Corda 15min, Abdominais 5x30", "Agachamentos 5x20", "Burpees 5x20", "Corrida 30min"],
             3: ["Dia 1: Corrida 30min, Pular Corda 15min", "Dia 2: Agachamentos 5x20, Flexões 5x20", "Dia 3: Abdominais 5x30, Burpees 5x20"],
             5: ["Dia 1: Corrida 30min, Flexões 5x20", "Dia 2: Pular Corda 15min, Abdominais 5x30", "Dia 3: Agachamentos 5x20", "Dia 4: Burpees 5x20", "Dia 5: Corrida 30min"]
@@ -85,7 +85,7 @@ function gerarRotinaTreino(params) {
                 ]
             },
             
-            intermediario: {
+            intermediário: {
                 1: [
                     "Dia 1:",
                     "Peito: Supino reto 4x10, Flexões 4x12",
@@ -126,7 +126,7 @@ function gerarRotinaTreino(params) {
                     "Bíceps: Rosca direta 4x10",  
                 ]
             },
-            avancado: {
+            avançado: {
                 1: [
                     "Dia 1:",
                     "Peito: Supino reto 5x8, Flexões 5x8",
@@ -202,7 +202,7 @@ function gerarRotinaTreino(params) {
                 "Cardio: Corrida 20min, Pular Corda 10min"
             ]
         },
-        intermediario: {
+        intermediário: {
             1: [
                 "Dia 1:",
                 "Cardio: Corrida 25min, Pular Corda 20min",
@@ -234,7 +234,7 @@ function gerarRotinaTreino(params) {
                 "Cardio: Corrida 25min, Pular Corda 15min"
             ]
         },
-        avancado: {
+        avançado: {
             1: [
                 "Dia 1:",
                 "Cardio: Corrida 35min, Pular Corda 25min",
@@ -306,7 +306,7 @@ function gerarRotinaTreino(params) {
                 "Cardio: Corrida 15min"
             ]
         },
-        intermediario: {
+        intermediário: {
             1: [
                 "Treino 1 dia (Corpo inteiro):",
                 "Peito: Supino reto 4x10, Flexões 4x12",
@@ -348,7 +348,7 @@ function gerarRotinaTreino(params) {
                 "Cardio: Corrida 20min"
             ]
         },
-        avancado: {
+        avançado: {
             1: [
                 "Treino 1 dia (Corpo inteiro):",
                 "Peito: Supino reto 5x8, Flexões 4x12",

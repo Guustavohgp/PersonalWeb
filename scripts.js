@@ -27,12 +27,12 @@ function gerarRotinaTreino(params) {
             3: ["Dia 1: Corrida 10min", "Dia 2: Pular Corda 10min", "Dia 3: Corrida 10min"],
             5: ["Dia 1: Corrida 10min", "Dia 2: Pular Corda 10min", "Dia 3: Corrida 10min", "Dia 4: Pular Corda 10min", "Dia 5: Corrida 10min"]
         },
-        intermediario: {
+        intermediário: {
             1: ["Dia 1: Corrida 20min, Pular Corda 15min"],
             3: ["Dia 1: Corrida 20min", "Dia 2: Pular Corda 15min", "Dia 3: Corrida 20min"],
             5: ["Dia 1: Corrida 20min", "Dia 2: Pular Corda 15min", "Dia 3: Corrida 20min", "Dia 4: Pular Corda 15min", "Dia 5: Corrida 20min"]
         },
-        avancado: {
+        avançado: {
             1: ["Dia 1: Corrida 30min, Pular Corda 20min"],
             3: ["Dia 1: Corrida 30min", "Dia 2: Pular Corda 20min", "Dia 3: Corrida 30min"],
             5: ["Dia 1: Corrida 30min", "Dia 2: Pular Corda 20min", "Dia 3: Corrida 30min", "Dia 4: Pular Corda 20min", "Dia 5: Corrida 30min"]
@@ -168,6 +168,105 @@ function gerarRotinaTreino(params) {
                 ]
             }
         },
+        
+            'perda de gordura': {
+        iniciante: {
+            1: [
+                "Dia 1:",
+                "Cardio: Corrida 20min, Pular Corda 15min",
+                "Pernas: Agachamento 3x12",
+                "Abdômen: Abdominais 3x20"
+            ],
+            3: [
+                "Dia 1: Cardio e Pernas",
+                "Cardio: Corrida 20min, Pular Corda 10min",
+                "Pernas: Agachamento 3x12",
+                "Dia 2: Cardio e Abdômen",
+                "Cardio: Bicicleta 25min",
+                "Abdômen: Abdominais 3x20",
+                "Dia 3: Cardio e Costas",
+                "Cardio: Corrida 15min, Pular Corda 10min",
+                "Costas: Remada Curvada 3x12"
+            ],
+            5: [
+                "Dia 1: Cardio",
+                "Cardio: Corrida 25min, Pular Corda 15min",
+                "Dia 2: Pernas",
+                "Pernas: Agachamento 3x15",
+                "Dia 3: Cardio",
+                "Cardio: Bicicleta 30min",
+                "Dia 4: Abdômen e Costas",
+                "Abdômen: Abdominais 3x20",
+                "Costas: Remada Curvada 3x12",
+                "Dia 5: Cardio",
+                "Cardio: Corrida 20min, Pular Corda 10min"
+            ]
+        },
+        intermediario: {
+            1: [
+                "Dia 1:",
+                "Cardio: Corrida 25min, Pular Corda 20min",
+                "Pernas: Agachamento 4x12",
+                "Abdômen: Abdominais 4x25"
+            ],
+            3: [
+                "Dia 1: Cardio e Pernas",
+                "Cardio: Corrida 25min, Pular Corda 15min",
+                "Pernas: Agachamento 4x12",
+                "Dia 2: Cardio e Abdômen",
+                "Cardio: Bicicleta 30min",
+                "Abdômen: Abdominais 4x25",
+                "Dia 3: Cardio e Costas",
+                "Cardio: Corrida 20min, Pular Corda 15min",
+                "Costas: Remada Curvada 4x12"
+            ],
+            5: [
+                "Dia 1: Cardio",
+                "Cardio: Corrida 30min, Pular Corda 20min",
+                "Dia 2: Pernas",
+                "Pernas: Agachamento 4x12",
+                "Dia 3: Cardio",
+                "Cardio: Bicicleta 35min",
+                "Dia 4: Abdômen e Costas",
+                "Abdômen: Abdominais 4x25",
+                "Costas: Remada Curvada 4x10",
+                "Dia 5: Cardio",
+                "Cardio: Corrida 25min, Pular Corda 15min"
+            ]
+        },
+        avancado: {
+            1: [
+                "Dia 1:",
+                "Cardio: Corrida 35min, Pular Corda 25min",
+                "Pernas: Agachamento 5x12",
+                "Abdômen: Abdominais 5x30"
+            ],
+            3: [
+                "Dia 1: Cardio e Pernas",
+                "Cardio: Corrida 30min, Pular Corda 20min",
+                "Pernas: Agachamento 5x12",
+                "Dia 2: Cardio e Abdômen",
+                "Cardio: Bicicleta 40min",
+                "Abdômen: Abdominais 5x30",
+                "Dia 3: Cardio e Costas",
+                "Cardio: Corrida 30min, Pular Corda 20min",
+                "Costas: Remada Curvada 5x10"
+            ],
+            5: [
+                "Dia 1: Cardio",
+                "Cardio: Corrida 40min, Pular Corda 25min",
+                "Dia 2: Pernas",
+                "Pernas: Agachamento 5x12",
+                "Dia 3: Cardio",
+                "Cardio: Bicicleta 45min",
+                "Dia 4: Abdômen e Costas",
+                "Abdômen: Abdominais 5x30",
+                "Costas: Remada Curvada 5x10",
+                "Dia 5: Cardio",
+                "Cardio: Corrida 35min, Pular Corda 20min"
+            ]
+        }
+    },
             'condicionamento fisico geral': {
         iniciante: {
             1: [

@@ -74,12 +74,12 @@ function gerarRotinaTreino(params) {
                     "Dia 2: Costas",
                     "Costas: Remada curvada 4x12, Puxada na polia 3x12",
                     "Dia 3: Pernas",
-                    "Pernas: Agachamento 4x15, Leg press 4x12",
+                    "Pernas: Agachamento 3x15, Leg press 3x12",
                     "Dia 4: Ombros e Tríceps",
-                    "Ombros: Desenvolvimento militar 4x10, Elevação lateral 4x12",
+                    "Ombros: Desenvolvimento militar 3x12, Elevação lateral 3x12",
                     "Tríceps: Tríceps banco 3x12",
                     "Dia 5: Abdômen e Bíceps",
-                    "Abdômen: Abdominais 4x30",
+                    "Abdômen: Abdominais 3x20",
                     "Bíceps: Rosca direta 3x12",
                     
                 ]

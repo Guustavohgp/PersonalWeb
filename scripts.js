@@ -54,9 +54,9 @@ function gerarRotinaTreino(params) {
                     "Dia 5: Abdômen e Cardio - Abdominais 4x20, Corrida 15min"]
             },
             intermediario: {
-                1: ["Treino corpo inteiro: Peito e Tríceps - Flexões 4x12, Supino 4x10, Costas e Bíceps - Remada 4x10, Rosca Bíceps 4x12, Pernas - Agachamentos 4x20, Leg Press 4x12, Ombros - Elevação Lateral 4x12, Desenvolvimento com Halteres 4x10, Abdômen e Cardio - Abdominais 5x30, Corrida 20min"],
+                1: ["Treino corpo inteiro: Peito e Tríceps - Flexões 4x12, Supino 4x10, Costas e Bíceps - Remada 4x10, Rosca Bíceps 4x10, Pernas - Agachamentos 4x20, Leg Press 4x12, Ombros - Elevação Lateral 4x12, Desenvolvimento com Halteres 4x10, Abdômen e Cardio - Abdominais 5x30, Corrida 20min"],
                 3: ["Dia 1: Peito e Tríceps - Flexões 4x12, Supino 4x10", 
-                    "Dia 2: Costas e Bíceps - Remada 4x10, Rosca Bíceps 4x12", 
+                    "Dia 2: Costas e Bíceps - Remada 4x10, Rosca Bíceps 4x10", 
                     "Dia 3: Pernas e Abdômen - Agachamentos 4x20, Abdominais 4x25"],
                 5: ["Dia 1: Peito - Supino 4x10, Flexões 4x12", 
                     "Dia 2: Costas e Bíceps- Remada Curvada 4x12, Pulldown 4x10, Rosca Bíceps 4x10", 
@@ -65,14 +65,14 @@ function gerarRotinaTreino(params) {
                     "Dia 5: Abdômen e Cardio - Abdominais 5x30, Corrida 20min"]
             },
             avancado: {
-                1: ["Treino corpo inteiro: Corrida forte 20min, Pular Corda 15min, Agachamentos 5x20, Flexões 5x20, Abdominais 5x30."],
+                1: ["Treino corpo inteiro: Peito e Tríceps - Flexões 5x15, Supino 5x8, Costas e Bíceps - Remada 5x8, Rosca Bíceps 5x10, Pernas - Agachamentos 5x15, Leg Press 5x12, Ombros - Elevação Lateral 5x12, Desenvolvimento com Halteres 5x10, Abdômen e Cardio - Abdominais 5x40, Corrida 30min"],
                 3: ["Dia 1: Peito e Tríceps - Supino 5x8, Flexões 5x15", 
-                    "Dia 2: Costas e Bíceps - Remada 5x8, Rosca Direta 5x10", 
+                    "Dia 2: Costas e Bíceps - Remada 5x8, Rosca Bíceps 5x10", 
                     "Dia 3: Pernas e Abdômen - Agachamento 5x15, Abdominais 5x30"],
                 5: ["Dia 1: Peito - Supino 5x10, Flexões 5x15", 
-                    "Dia 2: Costas - Remada 5x12, Pulldown 5x10", 
+                    "Dia 2: Costas e Bíceps - Remada 5x12, Pulldown 5x10, Rosca Bíceps 5x10 ", 
                     "Dia 3: Pernas - Agachamentos 5x15, Leg Press 5x12", 
-                    "Dia 4: Ombros - Desenvolvimento Militar 5x10, Elevação Lateral 5x12", 
+                    "Dia 4: Ombros - Desenvolvimento com Halteres 5x10, Elevação Lateral 5x12", 
                     "Dia 5: Abdômen e Cardio - Abdominais 5x40, Corrida 30min"]
             }
         },

@@ -11,11 +11,13 @@ Cada rotina de treino é personalizada com base no nível de experiência do usu
 
 ## Estrutura do Projeto
 
-
+### Estrutura principal
 ![alt text](image-3.png)
 
+### Estrutura da lógica
 ![alt text](image-4.png)
 
+Obs: É uma representação da estrutura e lógica do projeto, os valores foram alterados.
 
 ## Tecnologias Utilizadas
 * **HTML5**: Estrutura das páginas web.
@@ -24,21 +26,26 @@ Cada rotina de treino é personalizada com base no nível de experiência do usu
 
 * **JavaScript**: Lógica de geração de rotinas de treino e manipulação de interações do usuário.
 
+![alt text](image-5.png)
+
 
 ## Como Utilizar
 
+Acesse o link: https://personalwebhgp.netlify.app
 
+### Preencha com seus dados e clique em `Gerar Plano de Treino`
+![alt text](image-6.png)
 
-
-
+### Resultado
+![alt text](image-7.png)
 
 
 ## Melhorias Futuras
 
-* 
-* 
-* 
-* 
+* Vincular ao banco de dados para criar um histórico.
+* Fazer uma análise estatística do histórico.
+* Ajustar as saídas dos treinos para valores mais próximos da realidade.
+
 
 ## Contribuições
 Sinta-se à vontade para contribuir com melhorias no código, correções de bugs ou novas funcionalidades.

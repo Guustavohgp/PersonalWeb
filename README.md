@@ -45,6 +45,7 @@ Acesse o link: https://personalwebhgp.netlify.app
 * Vincular ao banco de dados para criar um histórico.
 * Fazer uma análise estatística do histórico.
 * Ajustar as saídas dos treinos para valores mais próximos da realidade.
+* Melhorar Design.
 
 
 ## Contribuições
